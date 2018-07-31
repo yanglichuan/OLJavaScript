@@ -1,0 +1,27 @@
+{
+  "name": "olive",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".hyper.js",
+  "dependencies": {
+    "webpack-merge": "^4.1.0",
+    "weex-loader": "^0.4.5"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --config ./webpack.dev.config.js --mode development"
+  },
+  "author": "",
+  "license": "ISC"
+}
