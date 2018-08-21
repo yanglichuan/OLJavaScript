@@ -79,6 +79,7 @@ result.then(function(img) {
 */
 
 
+/* 计程车有车牌号、车名，也有专车快车之分，其中专车每公里2元、快车每公里1元、行程开始时显示车名与车牌号，行程结束时显示总共的花费
 class Car {
 	constructor (num, name) {
 		this.num = num
@@ -117,6 +118,10 @@ let car = new QuickCar(100, "大众")
 let trip = new Trip(car)
 trip.star()
 trip.end()
+*/
+
+
+// 某停车场有3层，每层有100个车位，每辆车开进之前，显示车库的剩余车位，开进时显示车牌号与时间，离开时显示车牌号与停留时间
 
 
 
