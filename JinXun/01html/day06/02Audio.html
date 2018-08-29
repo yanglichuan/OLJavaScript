@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Audio</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<!-- controls必须，如果没有，则显示都不会显示
+		 autoplay自动播放，在chorme中，默认情况下是不会自动播放，原因是为了用户省流量。
+		 loop 2表示自动循环2次  -1则表示无限循环
+	 -->
+	<!-- <audio src="resource/bgsound.mp3" controls autoplay loop="2"></audio> -->
+	<!-- mp3 ogg wav 兼容模式，如果ogg格式不行，会用wav 如果都不行，则提示如下内容-->
+	<audio loop controls autoplay>
+		<source src="resource/bgsound.mp3" />
+		<source src="resource/music.ogg" />
+		您的浏览器不支持播放声音
+	</audio>
+</body>
+</html>
