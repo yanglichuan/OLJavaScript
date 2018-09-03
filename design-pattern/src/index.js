@@ -122,6 +122,20 @@ trip.end()
 
 
 // 某停车场有3层，每层有100个车位，每辆车开进之前，显示车库的剩余车位，开进时显示车牌号与时间，离开时显示车牌号与停留时间
+class Park {
+	constructor(car) {
+		this.car = car
+	}  
+}
+
+class Car {
+	constructor(number) {
+		this.number = number
+	}
+}
+
+let car1 = new Car(1001)
+let car2 = new Car(1002)
 
 
 

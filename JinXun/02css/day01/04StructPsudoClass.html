@@ -10,6 +10,27 @@
 		li:first-child {
 			color: red;
 		}
+		li:last-child {
+			color: green;
+		}
+		/*记住这里的参数下标识从1开始，而非传统的0*/
+		li:nth-child(3) {
+			color: #84fff8;
+		}
+		/*奇数*/
+		li:nth-child(2n-1){
+			color: skyblue;
+		}
+		li:nth-child(odd){
+			font-size: 20px;
+		}
+		li:nth-child(even){
+			font-size: 30px;
+		}
+		/*倒数*/
+		li:nth-last-child(even){
+			color: red;
+		}
 	</style>
 
 </head>
