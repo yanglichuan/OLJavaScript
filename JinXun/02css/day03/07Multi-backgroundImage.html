@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Multi-backgroundImage</title>
+		
+		<style>
+			body {
+			
+			}
+			div {
+				width: 500px;
+				height: 500px;
+				/*这里要注意：
+				1.多个的时候，谁在前谁就显示
+				2.hotpink在一开始后的时候添加，会将背景图片覆盖，放在第一个或其它位置都可以，但是默认会放在末尾
+				*/
+				background: url(images/l.jpg) no-repeat left top,
+			                url(images/3.jpg) no-repeat right bottom hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+		
+		</div>
+	</body>
+</html>
