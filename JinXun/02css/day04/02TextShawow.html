@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>TextShadow</title>
+	<link rel="stylesheet" href="">
+	<style>
+		body {
+			background-color: #ccc;
+		}
+		div {
+			font-size: 80px;
+			font-weight: 700;
+		}
+		.ao {
+			text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
+			/* 水平位置  垂直位置  模糊距离 阴影颜色*/
+	    	/*text-shadow: 1px 1px 1px #000,-1px -1px 1px #fff;*/
+		}
+
+		.tu {
+			text-shadow: -1px -1px -1px #000;
+			color: green;
+		}
+
+		.shadow {
+			text-shadow: 1px, 2px, 2px, -1px, -1px, -1px;
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="tu">我是一个凸起的字体</div>
+	<div class="ao">我是一个凹进去的字体</div>
+	<div class="shadow">我是一个带有阴影的字体</div>
+</body>
+</html>
