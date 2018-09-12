@@ -1,6 +1,10 @@
 #Note
 
 ```html
+   <!--table css 中如下表示：细线-->
+   border-collapse: collapse; 
+   
+   
 <label for="">用户名：<input type="text" /></label>
 <label >用户名：<input type="text" /></label>
 
