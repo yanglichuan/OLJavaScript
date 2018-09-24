@@ -6,36 +6,25 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>外边距塌陷</title>
+        <title>通栏</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
         <style>
-        div {
-            background-color: pink;
-            width: 300px;
-            height: 300px;
-            /* 如果没有下面这句，margin-top  */
-            overflow: hidden;
-        }
-        .father {
-
-        }
-        .son {
-            width: 100px;
-            height: 100px;
-            background-color: #0f0;
-            margin-top: 50px;
-        }
+        
         </style>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="father">
-            <div class="son"></div>
+        <div class="top"></div>
+        <div class="banner"></div>
+        <div class="main">
+            <div class="left">left</div>
+            <div class="right">right</div>
         </div>
+        <div class="footer"></div>
         <script src="" async defer></script>
     </body>
 </html>

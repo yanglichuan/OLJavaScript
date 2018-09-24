@@ -6,26 +6,33 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>外边距塌陷</title>
+        <title>FixedWidth</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
         <style>
-        div {
-            background-color: pink;
-            width: 300px;
-            height: 300px;
-            /* 如果没有下面这句，margin-top  */
-            overflow: hidden;
+        .top,
+        .banner,
+        .main,
+        .footer {
+            width: 900px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            margin: 0 auto;
         }
-        .father {
-
-        }
-        .son {
-            width: 100px;
+        .top {
             height: 100px;
-            background-color: #0f0;
-            margin-top: 50px;
+        }
+        .banner {
+            height: 120px;
+            margin: 5px auto 0;
+        }
+        .main {
+            height: 500px;
+            margin: 5px auto;
+        }
+        .footer {
+            height: 100px;
         }
         </style>
     </head>
@@ -33,9 +40,10 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="father">
-            <div class="son"></div>
-        </div>
+        <div class="top"></div>
+        <div class="banner"></div>
+        <div class="main"></div>
+        <div class="footer"></div>
         <script src="" async defer></script>
     </body>
 </html>
