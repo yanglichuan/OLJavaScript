@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>评论</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .message {
+        width: 908px;
+        height: 300px;
+        border: 1px solid rgb(170, 180, 205);
+        margin: 100px auto;
+        padding-left: 30px;
+    }
+    .comment h4 {
+        margin-top: 20px;
+        /* 高度剩余法 */
+        height: 37px; 
+    }
+    .comment a {
+       color: #f00;
+    }
+    .message textarea {
+        width: 840px;
+        height: 160px;
+        padding: 10px;
+    }
+    .message p {
+        font-size: 14px;
+        color: red;
+    }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <div class="comment">
+            <h4>评论 <img src="images/star.png"> <a href="#">俺要打分</a></h4>
+        </div>
+        <textarea placeholder="请输入您的宝贵意见"></textarea>
+        <input type="image" src="images/btn.png" alt="">
+        <p>暂时没有评论</p>
+    </div>
+</body>
+</html>
