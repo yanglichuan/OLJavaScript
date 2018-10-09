@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>仿🥔</title>
+    <style>
+    a {
+        margin: 100px;
+        width: 448px;
+        height: 252px;
+        position: relative;
+        display: block;
+    }
+    .mask {
+        width: 100%;
+        height: 100%;
+        background: url(images/arr.png) no-repeat center rgba(0, 0, 0, .3);
+        position: absolute;
+        display: none;
+        left: 0;
+        top: 0;
+    }
+    a:hover .mask {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <a href="#">
+        <img src="images/tudou.jpg" alt="">
+        <div class="mask"></div>
+    </a>
+</body>
+</html>

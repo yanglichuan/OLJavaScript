@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .tb {
+        /* background-color: #ff0; */
+        width: 520px;
+        height: 280px;
+        margin: 100px auto;
+        position: relative;
+    }
+
+    .tb .left {
+        width: 24px;
+        height: 36px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        margin-top: -18px;
+    }
+    
+    .tb .right {
+        width: 24px;
+        height: 36px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -18px;
+    }
+    .tb .bottom {
+        background-color: rgba(240, 255, 255, 0.3);
+        width: 70px;
+        height: 15px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        margin-left: -35px;
+        border-radius: 8px;
+    }
+    .bottom ul {
+        list-style: none;
+        /* float: left; */
+        /* display: inline; */
+    }
+    .bottom li {
+        width: 8px;
+        height: 8px;
+        margin: 3px;
+        background-color: rgb(241, 161, 12);
+        border-radius: 50%;
+        float: left;
+    }
+    </style>
+</head>
+<body>
+    <div class="tb">
+        <img src="images/tb.jpg" alt="">
+        <img src="images/left.png" class="left" alt="">
+        <img src="images/right.png" class="right" alt="">
+        <div class="bottom">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
