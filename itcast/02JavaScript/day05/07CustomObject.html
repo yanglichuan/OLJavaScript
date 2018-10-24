@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+            this.sayHi = function (){
+                console.log("姓名: " + this.name + ", 年龄: " + this.age);
+            };
+        }
+
+        var per1 = new Person("zs", 22);
+        per1.sayHi();
+        var per2 = new Person("ls", 23);
+        per2.sayHi();
+
+        console.log(per1 instanceof Person);
+        console.log(per2 instanceof Person);
+
+        function Dog(name, age, gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var dog = new Dog("大黄", 3, "公");
+        console.log(dog instanceof Dog);
+        console.log(dog instanceof Person);
+    
+    </script>
+</body>
+</html>

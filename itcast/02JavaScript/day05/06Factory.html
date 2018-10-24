@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function createObject(name, age){
+            var person = new Object();
+            person.name = name;
+            person.age = age;
+            person.eat = function (){
+                console.log(this.name + ", age: "+this.age + ", eat something...");
+            };
+            return person;
+        }
+
+
+        var per1 = createObject("zs", 23);
+        per1.eat();
+
+        var per2 = createObject("ls", 25);
+        per2.eat();
+    </script>
+</body>
+</html>
