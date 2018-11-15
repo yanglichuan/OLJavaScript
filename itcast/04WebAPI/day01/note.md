@@ -16,3 +16,9 @@ var inputs = document.getElementsByTagName("input");
         // console.log(k);
 ```
 
+
+注意： href="";
+里面值必须是完整的路径 www.baidu.com 这样是不对的，跳转不过去，必须 http://www.baidu.com
+
+
+getElementsByTagName  || getElementsByName 两者的区别要注意了。
