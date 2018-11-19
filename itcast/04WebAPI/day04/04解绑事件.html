@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+<input type="button" value="change" id="btn"><br/>
+<input type="button" value="change2" id="btn2"><br/>
+
+<script src="common.js"></script>
+<script>
+	/*
+	my$('btn').onclick = function () {
+		console.log("good");
+	};
+	my$("btn2").onclick = function () {
+		my$("btn").onclick = null;
+	};
+	*/
+
+
+	var f1 = function(){
+		console.log("这是F1函数");
+	};
+
+	f1();
+
+	function f2(){
+		console.log("this is f2 function");
+	};
+
+	my$("btn").addEventListener('click', f2, false);
+	my$("btn").addEventListener("click", function () {
+		console.log("btn 02 --");
+	}, false);
+
+	my$("btn2").onclick = function () {
+		// 为何没有解绑成功
+		my$("btn").removeEventListener("click", f2, false);
+	};
+
+</script>
+</body>
+</html>

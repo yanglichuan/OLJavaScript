@@ -19,7 +19,19 @@
 <script>
     my$("btn").onclick = function () {
 
-        // var list = document.getElementsByName("input");
+        // var list = document.ge{
+
+	    // var list = document.getElementsByName("input");
+	    var list = document.getElementsByTagName("input");
+	    console.log(list);
+	    for (var i=0; i<list.length; i++) {
+		    console.log(list[i] + "=====" + list[i].type);
+		    if (list[i].type === "text")  {
+			    list[i].value = "123";
+			    list[i].innerText = "234";
+		    }
+	    }
+    }tElementsByName("input");
         var list = document.getElementsByTagName("input");
         console.log(list);
         for (var i=0; i<list.length; i++) {
