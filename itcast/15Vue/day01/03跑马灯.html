@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+
+<input type="button" value="BEGIN" id="begin" @click="lang"><br/>
+<input type="button" value="END" id="end"><br/>
+
+<div id="app">
+	{{ msg }}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+
+	var vm = new Vue({
+		el: "#app",
+		data: {
+			msg: '别浪~猥琐发育~'
+		},
+		methods: {
+			lang() {
+				var start = this.msg.substring(0, 1);
+				var end = this.msg.substring(1);
+				var newStr = end + start;
+				console.log(newStr);
+			},
+		},
+	});
+
+</script>
+</body>
+</html>
