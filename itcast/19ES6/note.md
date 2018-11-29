@@ -9,6 +9,8 @@
 `npm install babel-plugin-transform-decorators-legacy --save-dev`
 `npm install connect-livereload --save-dev`
 
+`npm install babel-polyfill --save-dev` --兼容库
+
 
 
 ## ES6
