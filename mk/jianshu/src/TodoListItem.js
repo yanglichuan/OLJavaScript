@@ -23,12 +23,7 @@ export default class  TodoList extends Component {
                     <ul>
                         {
                             this.state.list.map((item, index) => {
-                                return <li key={index} 
-                                    onClick={this.handleDeleteClick.bind(this, index)}
-                                    // dangerouslySetInnerHTML = {{__html: item}}
-                                    >
-                                        {item} 
-                                    </li>;
+                                return <TodoItem content={item} key={index}/>;
                             })
                          }
                     </ul>
