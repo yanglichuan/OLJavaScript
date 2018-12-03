@@ -16,14 +16,21 @@ export default class  TodoList extends Component {
         return <Fragment>
                     <div>
                         <label htmlFor="insertArea">输入</label>
-                        <input id="insertArea" className="input" type='text' value={this.state.inputStr} onChange={this.handleInputChange.bind(this)}/>
+                        <input id="insertArea" className="input" type='text' 
+                            value={this.state.inputStr} 
+                            onChange={this.handleInputChange.bind(this)}/>
                         <button onClick={this.handleButtonClick.bind(this)}>提交</button>
                     </div>
                     {/**/}
                     <ul>
                         {
                             this.state.list.map((item, index) => {
-                                return <TodoItem content={item} key={index}/>;
+                                return <TodoItem 
+                                    content={item} 
+                                    key={index} 
+                                    index={index}
+                                    deleteItem = {this.handleDeleteClick.bind(this)}
+                                    />;
                             })
                          }
                     </ul>

@@ -9,12 +9,13 @@ export default class TodoItem extends Component {
     }
 
     render (){
-        return <div onClick={this.handleDelete}>
+        {/** 如果在这里面写 this.handleDelete.bind(this)有性能损耗问题 */}
+        return <div onClick={this.handleDelete.bind(this)}>
                 {this.props.content}
             </div>
     }
 
     handleDelete(){
-        alert(1);
+        this.props.deleteItem(this.props.index);
     };
 }
