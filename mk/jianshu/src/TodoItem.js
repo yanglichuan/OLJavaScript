@@ -12,7 +12,8 @@ export default class TodoItem extends Component {
     render (){
         {/** 如果在这里面写 this.handleDelete.bind(this)有性能损耗问题 */}
         const { content, test } = this.props;
-        return (<div onClick={this.handleDelete}>
+        return (
+            <div onClick={this.handleDelete}>
                 { test }--{ content }
             </div>)
     }
