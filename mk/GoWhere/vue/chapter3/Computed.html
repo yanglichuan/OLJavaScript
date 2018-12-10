@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{fullName}}
+        {{age}}
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                firstName: "Dell",
+                lastName: "Lee",
+                age: 27,
+                // fullName: firstName + " " + lastName,
+                fullName: "dell lee",
+            },
+            watch: {
+                // 这个也可以实现缓存，但是没有computed好用简洁
+                firstName: function(){
+                    console.log("计算了一次");
+                    this.fullName = this.firstName + " " + this.lastName;
+                },
+                lastName: function(){
+                    console.log("计算了一次");
+                    this.fullName = this.firstName + " " + this.lastName;
+                }
+            }
+
+            // methods: {
+            //     fullName: function(){
+            //         // 方法修改的无关这个fullName属性的时候，也会被调用计算，所以无缓存，不好。
+            //         console.log("计算了一次");
+            //         return this.firstName + " " + this.lastName;
+            //     },
+            // }
+
+            // computed: {
+            //     fullName: function(){
+            //         // 如果firstName和lastName没有被修改，那么是不会在进入这个方法的。有个缓存的机制
+            //         console.log("计算了一次");
+            //         return this.firstName + " " + this.lastName;
+            //     }
+            // },
+        });
+    </script>
+</body>
+</html>

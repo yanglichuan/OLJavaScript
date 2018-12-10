@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- 如果往里面加属性address怎么加？ 通过引用的方式让它指向一个代用address的userInfo对象 
+        另外Vue.set(vm.userInfo, 'address', 'beijing'); <==> vm.$set(vm.userInfo, 'address', 'beijing');-->
+    <div id="app" >
+        <div v-for="(item, key, index) of userInfo" >
+            {{ item }} --- {{key}} --- {{index}}
+        </div>
+        
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app", 
+            data: {
+                userInfo: {
+                    id:101, 
+                    name: 'zs', 
+                    age: 20, 
+                    sal: 2200,
+                },
+            }
+        });
+    </script>
+</body>
+</html>

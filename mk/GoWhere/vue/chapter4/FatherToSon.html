@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标准模板</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter 
+            v-for="(item, index) in numList" 
+            :key="index"
+            :count=item
+        >
+        </counter>
+        
+        <div>{{total}}</div>
+    </div>
+    <script>
+        // 单项数据流如何传值。如何修改值
+        var count = {
+            props: ['count'],
+            data: function(){
+                return {
+                    number: 0,
+                }
+            },
+            template: "<div @click='handleClick'>{{count}}</div>",
+            methods: {
+                handleClick: function(){
+                    this.number++;
+                },
+            
+            },
+        };
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                total: 0,
+                numList: [
+                    2, 
+                    3,
+                ],
+            },
+            components: {
+                counter: count,
+            },
+            methods: {
+
+            },
+        });
+    </script>
+</body>
+</html>

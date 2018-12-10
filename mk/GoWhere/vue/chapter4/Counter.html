@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <counter ref="one" @counter="handleCounter"></counter>
+        <counter ref="two" @counter="handleCounter"></counter>
+        <div>{{total}}</div>
+    </div>
+    <script>
+        Vue.component("counter", {
+            data: function(){
+                return {
+                    number: 0,
+                };
+            },
+            template: "<div @click='handClick'>{{number}}</div>",
+            methods: {
+                handClick: function(){
+                    this.number++;
+                    this.$emit('counter');
+                },
+            }
+        });
+
+        var vm = new Vue({
+            el:'#app',
+            data: {
+                total: 0,
+            },
+            methods: {
+                handleCounter: function(){
+                    var one = this.$refs.one.number;
+                    var two = this.$refs.two.number;
+                    this.total = one + two;
+                },
+            },
+        });
+    </script>
+</body>
+</html>
