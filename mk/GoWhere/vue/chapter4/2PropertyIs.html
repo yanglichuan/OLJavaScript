@@ -19,6 +19,7 @@
     </div>
     <script>
         // The "data" option should be a function that returns a per-instance value in component definitions.
+        // 原因是：子组件的中的data数据可能被多次调用，而不想被冲突使用。所以用函数的方式了。
         Vue.component('row', {
             data: function(){
                 return {

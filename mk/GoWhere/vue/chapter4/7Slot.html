@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插值用法</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <!-- slot -->
+    <div id="app">
+        <child content='<p>John</p>'></child>
+
+        <father>
+            <div slot="header">header</div>
+            <div slot="footer">footer</div>
+        </father>
+    </div>
+    <script>
+        Vue.component("father", {
+            template: `
+                <div>
+                    <slot name="header"></slot>
+                    <slot name="default"><h3>Default slot h3</h3></slot>
+                    <div v-html="this.content"></div>
+                    <slot name="footer"></slot>
+                </div>`,
+        });
+        Vue.component("child", {
+            props: {
+                content: String, 
+            },
+            template: `<div>
+                            <p>Hello</p>
+                            <div v-html="this.content"></div>
+                        </div>
+                `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+        });
+    </script>
+</body>
+</html>

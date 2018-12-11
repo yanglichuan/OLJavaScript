@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标准模板</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- context没有传值，默认为空 -->
+        <child
+            name="zs"
+            :age = 23
+            content = "张三"
+            context = "hi"
+        >
+            
+        </child>
+    </div>
+    <script>
+        // :age = "23" age前面有： 后面23有引号也表示是个Number类型
+        Vue.component("child", {
+            props: {
+                name: String, 
+                age: Number,
+                content: [String, Number],
+                context: {
+                    type: String,
+                    required: false,
+                    default: "default",
+                    validator: function(value){
+                        return (value.length > 5);
+                    }
+                }
+            },
+            template: "<div>{{name}}--{{age}}--{{content}}--{{context}}</div>"
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+        });
+    </script>
+</body>
+</html>
