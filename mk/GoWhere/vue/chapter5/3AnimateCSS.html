@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中使用Animate库</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="../animate.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 使用animate的这样的库，需要注意的是： 要自定义写class 另外里面要写上animated -->
+        <transition name="fade" 
+            enter-active-class="animated shake" 
+            leave-active-class="animated swing"
+        >
+            <div v-if="show">Hello World</div>
+        </transition>
+        <button @click='handleBtnClick'>变变变</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: true,
+            },
+            methods: {
+                handleBtnClick: function(){
+                    this.show = !this.show;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

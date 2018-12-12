@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue中使用Animate库</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" type="text/css" href="../animate.css">
+    <style>
+        .fade-enter, .fade-leave-to {
+            opacity: 0;
+        }
+        .fade-enter-active, .fade-leave-active {
+            transition: opacity 3s;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 首次加载时出现动画效果  appear(换成别的名字不行，不如app，亲测)  
+            type="transition" 作用： 当animate库中的动画效果时长是1s时， transition的
+            效果是3秒时，如何确定用哪个时长？就是用type来告知
+
+            :duration="{enter: 5000, leave:10000}" 自定义效果时长 进入5000毫秒 离开10s
+        -->
+        <transition 
+            name="fade" 
+            type="transition"
+            :duration="5000"
+            appear
+            appear-active-class="animated shake"
+            enter-active-class="animated shake fade-enter-active" 
+            leave-active-class="animated swing fade-leave-active"
+        >
+            <div v-if="show">Hello World</div>
+        </transition>
+        <button @click='handleBtnClick'>变变变</button>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: true,
+            },
+            methods: {
+                handleBtnClick: function(){
+                    this.show = !this.show;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
