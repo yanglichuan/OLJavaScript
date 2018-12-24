@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FunctionOtherDefine</title>
+</head>
+<body>
+    <script>
+        function f1(){
+            console.log("f1....");
+        }
+        f1();
+
+        var f2 = function (){
+            console.log("f2....");
+        }; // 赋值
+        f2();
+
+        function f3(){
+            console.log("f3....");
+        }
+        f3();
+
+        function f3(){
+            console.log("f3 2.....");
+        }
+        f3();
+
+        function f4(){
+            console.log("f4 ...");
+        }
+        f4();
+        f4 = function(){
+            console.log("f4 2....");
+        }
+        f4();
+
+        (function (){console.log("hello")})();
+    </script>
+</body>
+</html>
