@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+
+<body>
+
+<input type="text" id="btn"/>
+
+<a href="http://www.baidu.com" id="ak">百度</a>
+
+<script src="common.js"></script>
+<script>
+
+	my$("btn").onclick = function () {
+		// 注意： href = "www.126.com";是不行的。
+		my$("ak").href = "http://www.126.com";
+
+		my$("ak").innerText = "126";
+	};
+</script>
+</body>
+</html>
