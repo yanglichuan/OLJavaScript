@@ -21,17 +21,9 @@ ol {
     border: 0;
 }
 
-.clearfix:after {
-    clear: both;
-    content: "";
-    display: block;
-    visibility: hidden;
-    height: 0;
-}
 
-.clearfix {
-    zoom: 1;
-}
+/*.clearfix:after{clear:both; content:""; display:block; visibility:hidden; height:0;}
+.clearfix{zoom:1;}*/
 
 body {
     font-size: 12px;
@@ -74,7 +66,6 @@ a:hover {
 .header h1 {
     width: 180px;
     height: 49px;
-    float: left;
 }
 
 .header .header_r {
@@ -99,7 +90,6 @@ a:hover {
     height: 260px;
     width: 948px;
     border: 1px solid #9BB8D2;
-    float: left;
 }
 
 .main .left {
@@ -150,7 +140,6 @@ a:hover {
     width: 340px;
     height: 260px;
     padding: 0 6px;
-    float: left;
 }
 
 .main .middle span {

@@ -1,30 +1,82 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>通栏</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        <style>
-        
-        </style>
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div class="top"></div>
-        <div class="banner"></div>
-        <div class="main">
-            <div class="left">left</div>
-            <div class="right">right</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    * {padding: 0; margin: 0}
+    .banner {
+        height: 80px;
+        background-color: pink;
+    }
+    .banner-main {
+        margin: 0 auto;
+    }
+    .body {
+        margin: 0 auto;
+    }
+    .header {
+        width: 900px;
+        height: 150px;
+        margin: 0 auto;
+    }
+    .header li {
+        float: left;
+        width: 217px;
+        height: 150px;
+        margin-right: 10px;
+    }
+    .four {
+        margin-right: 0;
+        float: right;
+    }
+    .body .main {
+        background-color: skyblue;
+        height: 500px;
+        margin: 0 auto;
+    }
+    .main .left {
+        height: 500px;
+        width: 290px;
+        background-color: yellow;
+        float: left;
+    }
+    .main .right {
+        height: 500px;
+        width: 600px;
+        background-color: palevioletred;
+        float: right;
+    }
+    .footer {
+        height: 100px;
+        background-color: black;
+        margin: 0 auto;
+    }
+    .main-width {
+        width: 900px;
+    }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-main main-width">123</div>
+    </div>
+    <div class="body main-width">
+        <div class="header">
+            <ul>
+                <li style="background-color: green">1</li>
+                <li style="background-color: red">2</li>
+                <li style="background-color: royalblue">3</li>
+                <li class="four" style="background-color: yellow">4</li>
+            </ul>
         </div>
-        <div class="footer"></div>
-        <script src="" async defer></script>
-    </body>
+        <div class="main">
+            <div class="left"></div>
+            <div class="right"></div>
+        </div>
+    </div>
+    <div class="footer main-width"></div>
+</body>
 </html>

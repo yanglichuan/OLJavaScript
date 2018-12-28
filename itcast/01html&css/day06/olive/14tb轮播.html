@@ -8,72 +8,68 @@
     <style>
     * {
         margin: 0;
-        padding: 0;
-    }
-    .tb {
-        /* background-color: #ff0; */
+        padding: 0 ;
+    }    
+    .taobao {
         width: 520px;
         height: 280px;
-        margin: 100px auto;
+        margin: 50px auto;
+        /* text-align: center; */
         position: relative;
     }
-
-    .tb .left {
+    .left {
         width: 24px;
         height: 36px;
         position: absolute;
+        background: url(images/left.png) no-repeat;
         left: 0;
         top: 50%;
         margin-top: -18px;
     }
-    
-    .tb .right {
+    .right {
         width: 24px;
         height: 36px;
         position: absolute;
+        background: url(images/right.png) no-repeat;
         right: 0;
         top: 50%;
         margin-top: -18px;
     }
-    .tb .bottom {
-        background-color: rgba(240, 255, 255, 0.3);
+    .ul {
         width: 70px;
-        height: 15px;
+        height: 13px;
+        background-color: #ccc;
         position: absolute;
-        bottom: 20px;
         left: 50%;
+        bottom: 0;
         margin-left: -35px;
+        margin-bottom: 25px;
         border-radius: 8px;
     }
-    .bottom ul {
+    .ul li{
         list-style: none;
-        /* float: left; */
-        /* display: inline; */
-    }
-    .bottom li {
+        float: left;
         width: 8px;
         height: 8px;
-        margin: 3px;
-        background-color: rgb(241, 161, 12);
+        background-color: orange;
         border-radius: 50%;
-        float: left;
+        line-height: 8px;
+        margin: 3px;
     }
     </style>
 </head>
 <body>
-    <div class="tb">
-        <img src="images/tb.jpg" alt="">
-        <img src="images/left.png" class="left" alt="">
-        <img src="images/right.png" class="right" alt="">
-        <div class="bottom">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
+    <div class="taobao">
+        <img src="images/tb.jpg">
+        <a class="left" href=""></a>
+        <a class="right" href=""></a>
+        <ul class="ul">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
 </body>
 </html>

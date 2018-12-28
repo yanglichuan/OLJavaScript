@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+    }
+    .one {
+        background-color: #0ff;
+    }
+    .two {
+        background-color: #0f0;
+        position: relative;
+        left: 300px;
+        top: 500px;
+        /* 之前的所占位置还是留着，即下面的div不会顶上来。 */
+    }
+    .three {
+        background-color: #00f;
+    }
+    </style>
+</head>
+<body>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+</body>
+</html>

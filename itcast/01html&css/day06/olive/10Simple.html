@@ -6,35 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>哈根达斯</title>
     <style>
-    .hargen {
-        width: 310px;
-        height: 190px;
-        border: 1px solid #ccc;
-        margin: 100px 100px;
-        position: relative;
+    .d {
+        width: 330px;
+        height: 200px;
+        margin: 100px auto;
+        position: relative
     }
-    .top_tu {
+    .adv {
+        padding: 4px;
+        border: 1px solid #ccc;
+    }
+    .left {
         position: absolute;
         top: 0;
         left: 0;
     }
-    div :nth-child(3) {
+    .right {
         position: absolute;
-        bottom: 0;
         right: 0;
-    }
-    .adv {
-        /* position: absolute; */
-
+        bottom: 0;
     }
 
     </style>
 </head>
 <body>
-    <div class="hargen">
-        <img src="images/top_tu.gif" alt="" class="top_tu">
-        <img src="images/adv.jpg" alt="" class="adv">
-        <img src="images/br.gif" alt="">
+    <div class="d">
+        <img class="adv" src="images/adv.jpg" alt="">
+        <img class="left" src="images/top_tu.gif" alt="">
+        <img class="right" src="images/br.gif" alt="">
     </div>
 </body>
 </html>
