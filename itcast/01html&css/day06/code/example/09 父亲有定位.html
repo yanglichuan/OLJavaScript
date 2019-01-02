@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<style>
-	.yeye {
-		width: 800px;
-		height: 800px;
-		background-color: skyblue;
-		position: absolute;
-	}
-	.father {
-		width: 500px;
-		height: 500px;
-		background-color: pink;
-		margin: 100px;
-		/*position: absolute;*/
-	}
-	.son {
-		width: 200px;
-		height: 200px;
-		background-color: purple;
-		position: absolute;
-		top: 50px;
-		left: 50px;
-		/*若所有父元素都没有定位，以浏览器当前屏幕为准对齐(document文档)。*/
-	}
-	</style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .yeye {
+            width: 800px;
+            height: 800px;
+            background-color: skyblue;
+            position: absolute;
+        }
+        
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            margin: 100px;
+            /*position: absolute;*/
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            /*若所有父元素都没有定位，以浏览器当前屏幕为准对齐(document文档)。*/
+            /* 如果father有定位，则以father为参照，如果没有，而yeye有，则以yeye为参照 */
+        }
+    </style>
 </head>
+
 <body>
-<div class="yeye">
-	<div class="father">
-		<div class="son"></div>
-	</div>
-</div>
-	
+    <div class="yeye">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+
 </body>
+
 </html>

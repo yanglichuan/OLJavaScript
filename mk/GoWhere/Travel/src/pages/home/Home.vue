@@ -15,7 +15,5 @@ export default {
 </script>
 
 <style lang="">
-  .home {
-    font-size: 50px;
-  }
+
 </style>

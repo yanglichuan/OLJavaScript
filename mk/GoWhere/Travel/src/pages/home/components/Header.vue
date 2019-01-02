@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-left">返回</div>
-    <div class="header-input">内容</div>
+    <div class="header-input">景点/酒店/美食</div>
     <div class="header-right">城市</div>
   </div>
 </template>
@@ -13,35 +13,26 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .@import '~styles/varibles.styl'
+  // .@import '~styles/varibles.styl'
   .header
     display: flex
-    line-height: $headerHeight
-    background: $bgColor
-    color: #fff
+    line-height: .84rem
+    background-color #00bcd4
     .header-left
       width: .64rem
-      float: left
-      .back-icon
-        text-align: center
-        font-size: .4rem
+      float left
     .header-input
       flex: 1
-      height: .64rem
-      line-height: .64rem
-      margin-top: .12rem
-      margin-left: .2rem
-      padding-left: .2rem
-      background: #fff
-      border-radius: .1rem
-      color: #ccc
+      margin-top .12rem
+      margin-left .2rem
+      line-height .64rem
+      height .64rem
+      background #fff
+      color #ccc
+      border-radius .1rem
     .header-right
-      min-width: 1.04rem
-      padding: 0 .1rem
-      float: right
-      text-align: center
-      color: #fff
-      .arrow-icon
-        margin-left: -.04rem
-        font-size: .24rem
+      width 1.28rem
+      float right
+      text-align center
+
 </style>
