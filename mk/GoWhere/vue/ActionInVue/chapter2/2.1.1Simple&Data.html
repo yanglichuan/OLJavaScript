@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{a}}
+    </div>
+    <script>
+        // 变量 app 就代表了这个 Vue 实例。事实上，几乎所有的代码都是一个对象，写入 Vue 实例的 选项内的。
+        // 首先，必不可少的一个选项就是el。 el用于指定一个页面中己存在的DOM元素来挂载Vue 实例，
+        // 它可以是 HTMLElement ，也可以是 css 选择器，比如:
+        var myData = {
+                a: ['1', 2, '3', 'hello']
+            }
+            // 建议所有会用到的数据都 预先在 data 内声明，
+            // 这样不至于将数据散落在业务逻辑中，难以维护。
+        var app = new Vue({
+            el: document.getElementById('app'),
+            data: myData
+        });
+
+        console.log(app.a)
+        app.a = 'app.a'
+        console.log(app.a)
+        myData.a = 'myData.a'
+        console.log(app.a)
+            // app是vue对象
+        console.log(app)
+            // myData是自定义的变量
+        console.log(myData)
+    </script>
+</body>
+
+</html>

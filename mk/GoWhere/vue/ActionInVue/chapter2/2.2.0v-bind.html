@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="href" >百度一下</a>
+        <img v-bind:src="imgUrl" alt="">
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                href: 'http://www.baidu.com',
+                imgUrl: 'https://i1.hoopchina.com.cn/blogfile/201901/07/BbsImg_4504747156968_1546834668_s_49882_o_w_658_h_493_71315.jpg?x-oss-process=image/resize,w_800/'
+            }
+        });
+    </script>
+</body>
+</html>

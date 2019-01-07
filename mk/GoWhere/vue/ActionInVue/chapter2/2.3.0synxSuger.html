@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+    <!-- 语法糖：
+        v-bind:href ==> :href
+        v-click:click ==> @click
+        注意冒号 不是@:click
+     -->
+    <div id="app">
+        <a :href="bind">百度一下</a>
+        <p v-if="show">隐藏显示</p>
+        <button @click="handleBtnClick">点击一下</button>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                bind: 'http://www.baidu.com'
+            },
+            methods: {
+                handleBtnClick: function(){
+                    this.close();
+                },
+                close: function(){
+                    this.show = false;
+                }
+            },
+        });
+    </script>
+</body>
+</html>
