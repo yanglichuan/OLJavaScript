@@ -1,0 +1,32 @@
+#Note
+## 技术栈
+* Vue.js
+    * vue全家桶
+    * vue-cli 3.0
+    * vue调试
+    * vue-i18n
+* HTML
+    * range空间
+    * audio空间
+    * LocalStorage
+    * IndexedDB
+* CSS
+    * 字体图标Web字体
+    * keyframes动画
+    * scss
+    * rem
+* JavaScript
+    * es6
+    * mock.js
+    * touch、mouse时间
+    * axios
+* 阅读器
+    * epubjs
+    * 科大讯飞API
+    * Reader
+    * book.js
+* 发布
+    * Git
+    * Node.js
+    * 阿里云
+    * Nginx

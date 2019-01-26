@@ -16,16 +16,31 @@
             data: {
                 test: "good job",
             },
+            // 在beforeCreate之前 Init Vue实例 Event & Lifecycle
+            beforeCreate: function(){
+                console.log("beforeCreate");
+                return this.test + "....";
+            },
             beforeCreate() {
                 console.log("beforeCreate");
+                // return this.test + "=beforeCreate~";
             },
+            // beforeCreate之后 created之前
+            // 继续初始化 injection & reactivity
+            // 外部的注入，包括双向绑定等
+            // 这个时候Vue实例的初始化算是结束了
             created() {
                 console.log("created");
             },
+            
             beforeMount() {
+                console.log(this.$el); 
+                // 这个时候页面还没有被渲染
                 console.log("beforeMount");
             },
             mounted() {
+                // 这个时候页面被渲染了，所以能看到数据
+                console.log(this.$el);
                 console.log("mounted");
             },
             beforeUpdate() {

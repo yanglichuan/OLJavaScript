@@ -5,8 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="../../vue.js"></script>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        {{reversedText}}
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                text: '123,456'
+            },
+            computed: {
+                reversedText: function(){
+                    return this.text.split(',').reverse().join(',')
+                }
+            },
+        });
+    </script>
 </body>
 </html>
