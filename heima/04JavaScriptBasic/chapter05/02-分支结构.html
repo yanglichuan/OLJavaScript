@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 分数转换，把百分制转换成ABCDE   <60  E  60-70 D  70-80 C  80-90 B  90 - 100 A
+    var score = 59;
+    if (score >= 90 && score <= 100) {
+      console.log('A');
+    } else if (score >= 80 && score < 90) {
+      console.log('B');
+    } else if (score >= 70 && score < 80) {
+      console.log('C');
+    } else if (score >= 60 && score < 70) {
+      console.log('D');
+    } else if (score < 60) {
+      console.log('E');
+    }
+    
+    // 分数转换，把百分制转换成ABCDE   <60  E  60-70 D  70-80 C  80-90 B  90 - 100 A
+    var score = 59;
+    if (score >= 90) {
+      console.log('A');
+    } else if (score >= 80) {
+      console.log('B');
+    } else if (score >= 70) {
+      console.log('C');
+    } else if (score >= 60) {
+      console.log('D');
+    } else {
+      console.log('E');
+    }    
+
+    // 下面这种更加简洁，其中里面隐藏了逻辑性 
+
+    </script>
+</body>
+</html>
