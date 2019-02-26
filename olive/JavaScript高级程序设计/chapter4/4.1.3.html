@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var count = 20;
+        function addSum(num) {
+            num += 10;
+            console.log(num);
+            return num;
+        }
+        var result = addSum(count);
+        console.log(count);
+        console.log(result);
+
+        var person = new Object();
+        person.name = "hello ";
+        var name = "name";
+        function change(person, name) {
+            person.name = "kitty";
+            name = "world";
+            console.log("2."+person.name, name); // kitty world
+        }
+        console.log("1."+person.name, name); // hello name
+        change(person, person.name);    
+        console.log("3."+person.name, name); // kitty  name
+
+
+
+        person.name = "hello ";
+        name = "name";
+        // 这可以看做一个面试题
+        function change2(person, name) {
+            person.name = "kitty";
+            name = "world";
+            person = new Object();
+            person.name = "peter";
+            name = "john";
+            console.log("5."+person.name, name); // peter john
+        }
+        console.log("4."+person.name, name); // hello name
+        change2(person, person.name);    
+        console.log("6."+person.name, name); // kitty  name
+
+
+
+        var st = new String("123");
+        console.log(st);
+
+        var n1 = Number("s");
+        console.log(n1);
+        
+    </script>
+</body>
+</html>

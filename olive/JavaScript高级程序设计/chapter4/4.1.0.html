@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "hello ";
+        console.log("1."+str);
+        function change(str) {
+            str = "world";
+            console.log("2."+str);
+        }
+        change(str);
+        console.log("3."+str);
+
+        var person = new Object();
+        person.name = "Kitty";
+        console.log("1."+person.name);
+        function changePerson(person){
+            person.name = "cat";
+            console.log("2."+person.name);
+        }
+        changePerson(person);
+        console.log("3."+person.name);
+
+
+        function add(){
+            var result = 0;
+            for(let i=0; i<arguments.length; i++) {
+                result += arguments[i];
+            }
+            return result;
+        }
+        console.log(add(5, 10, 15));
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var tmp = 123;
+        if (true) {   
+            // TDZ开始   
+            // tmp = 'abc'; // ReferenceError   
+            // console.log(tmp); // ReferenceError   
+            let tmp; // TDZ结束   
+            console.log(tmp); // undefined   
+            tmp = 123;   
+            console.log(tmp); // 123 
+        }
+
+
+        var bar = function(x = y, y = 2) {
+            return [x, y];
+        }
+        // console.log(bar());  // ReferenceError: y is not defined
+
+        var foo = function(x = 2, y = x) {
+            return [x, y];
+        }
+        console.log(foo());
+
+        var a = 1;
+        var a = 1;
+
+        // let a = 1; // Uncaught SyntaxError: Identifier 'a' has already been declared
+
+
+        var temp = new Date();
+        var showDate = function (){
+            console.log(temp);
+            if (false) {
+                var temp = "hello ";
+                console.log(false);
+            }
+        }
+        showDate();
+
+
+        function outside() { 
+            console.log('I am outside!'); 
+        } 
+        (function () {   
+            if (false) {     
+                // 重复声明一次函数outside     
+                function outside() { 
+                    console.log('I am inside!'); 
+                }   
+            }   
+            outside(); 
+        }());
+
+        
+    </script>
+</body>
+</html>
