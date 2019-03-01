@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>迭代方法</title>
+</head>
+<body>
+    <script>
+        function isEven(num){
+            return (num % 2) == 0 ? true : false;
+        }
+        var numbers = [1, 4, 90, 8, 10];
+        console.log(numbers.every(isEven)); // 测试数组的所有元素是否都通过了指定函数的测试。
+
+        var filters = numbers.filter(isEven); // 过滤基数，将所有偶数返回到一个新数组。
+        // console.log(numbers); // 不会改变。
+        console.log(filters); // [4, 90, 8, 10]
+
+        // forEach 对数组的每个元素执行一次提供的函数。
+        numbers.forEach(function(num) {
+            console.log((num % 2) == 0 ? true: false);
+        });
+
+        function add(num) {
+            return num += 100;
+        }
+        console.log(numbers.map(add)); // map返回一个新数组 并不会影响原有数组
+        console.log(numbers);
+
+        console.log(numbers.some(isEven));// 跟every一样的作用，只不过some只要有一个满足其条件即可。
+
+
+    </script>
+</body>
+</html>

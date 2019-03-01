@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>没有重载(深入理解)</title>
+</head>
+<body>
+    <script>
+        function addSum(a) {
+            return a + 100;
+        }
+        function addSum(a) {
+            return a + 200;
+        }
+
+        console.log(addSum(10)); // 为何没有重载
+        // 上面的写法类似于下面的写法。
+        
+        var addSum = function(a){
+            return a + 100;
+        }
+        addSum = function(a) {
+            return a + 200;
+        }
+        console.log(addSum(100));
+
+    </script>
+</body>
+</html>

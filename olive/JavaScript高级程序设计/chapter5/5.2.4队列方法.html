@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>队列方法</title>
+</head>
+<body>
+    <script>
+        var colors = [];
+        colors.push("red", "green");
+        console.log(colors);
+        colors.push("black");
+        console.log(colors);
+        var item = colors.shift(); // 取得第一项返回后删除。
+        console.log(colors);
+        console.log(colors.unshift("brown")); // 在头部添加元素并返回数组长度。
+        console.log(colors);
+
+        console.log(colors.reverse()); // 重排数组，并返回其引用。
+        console.log(colors);
+
+        
+    </script>
+</body>
+</html>

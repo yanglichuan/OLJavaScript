@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>基本包装类型</title>
+</head>
+<body>
+    <script>
+        var str = new String("some color");
+        str = "some red";// 通过new创建出来的字符串对象生存期在离开作用域之前会一直存在内存中。
+        // 而通过基本数据类型方式的不会，所以下面的str.color = undefined
+        // 而new出来的会打印出 red
+        str.color = "red";
+        console.log(str.color);
+
+        var obj = new Object("some");
+        console.log(obj instanceof String);
+        obj = new Number(3);
+        console.log(obj instanceof Number);
+        obj = new Boolean(false);
+        console.log(obj instanceof Boolean);
+
+
+        var value = "25";
+        var number = Number(value); // 转型函数
+        console.log(typeof number); // number
+
+        obj = new Number(value); // 构造函数 
+        console.log(typeof obj); // obj
+    </script>
+</body>
+</html>

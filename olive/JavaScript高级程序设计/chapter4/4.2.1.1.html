@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作用域实例</title>
+</head>
+<body>
+    <script>
+        /*
+        var a = 25;
+        console.log("line12:"+a);
+        function fn(){
+            console.log("line14:"+a);
+            var a = 20; // undefined
+            console.log("line16:"+a);
+        }
+        console.log("line18:"+a);
+        fn();
+        console.log("line20:"+a);
+        */
+
+        /*
+        console.log(a); // ƒ a() { console.log("aaaa");}
+        function a() {
+            console.log("aaaa");
+        }
+        var a = 1;
+        console.log(a); // 1
+        */
+
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9;
+            // var a = 9;
+            // b = 9;
+            // c = 9;
+            console.log(a); 
+            console.log(b);
+            console.log(c);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数内部属性</title>
+</head>
+<body>
+    <script>
+        function create(n) {
+            if (n <= 1)
+                return 1;
+            // return n * arguments.callee(n - 1);
+            return n * create(n - 1); //    这里递归的时候函数与create函数名绑定在一起了。
+            //          如果别人封装了而又想改名怎么办？上面的方式可以解决该问题
+        }
+        var result = create(5); // returns 120 (5 * 4 * 3 * 2 * 1)    
+        console.log(result);
+    </script>
+</body>
+</html>
