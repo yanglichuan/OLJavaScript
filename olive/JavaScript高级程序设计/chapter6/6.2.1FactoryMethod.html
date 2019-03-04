@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>工厂方法</title>
+</head>
+<body>
+    <script>
+        var createPerson = function(name, age){
+            var person = new Object();
+            person.name = name;
+            person.age = age;
+            return person;
+        }
+        var p1 = createPerson("zs", 18);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>原型模式</title>
+</head>
+<body>
+    <script>
+        function Person(){
+
+        }
+        Person.prototype.name = "zs";
+        Person.prototype.age = 18;
+        Person.prototype.eat = function(){
+            console.log("eat");
+        }
+        var p1 = new Person();
+        console.log(p1.name);
+        p1.name = "ls";
+        console.log(p1.name);
+        delete p1.name;
+        console.log(p1.name);
+
+        console.log(p1 instanceof Object);
+        console.log(p1 instanceof Person);
+        console.log(p1.constructor == Person);
+        console.log(p1.constructor == Object);
+
+        console.log("---------------");
+        Person.prototype = {
+            name: "zs",
+            age: 18,
+            eat: function(){
+                console.log("eat...");
+            }
+        }
+        p1 = new Person("zs", 20);
+        console.log(p1 instanceof Object);
+        console.log(p1 instanceof Person);
+        console.log(p1.constructor == Person);
+        console.log(p1.constructor == Object);
+    </script>
+</body>
+</html>
