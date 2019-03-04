@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        // this当前对象
+        // 1.函数
+        // 2.方法中
+        // 3.构造函数
+
+        // 1. 
+        function fn() {
+            console.log(this);  // 指向父类window
+        }
+        fn();
+
+        // 
+        var person = {
+            name: 'zs',
+            sayHi: function(){
+                console.log(this);
+            }
+        }
+        person.sayHi();
+
+        //
+        function Fn() {
+            this.name = 'zs',
+            console.log(this);
+            this.sayHi = function(){
+                // console.log(this);
+            }
+        }
+        new Fn().sayHi();
+        Fn();
+
+    </script>
+</body>
+</html>

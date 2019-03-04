@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>遍历对象和删除对象属性</title>
+</head>
+<body>
+    <script>
+        var person = {
+            name: 'zs',
+            age: 18,
+            sayHi: function(){
+                console.log("hello world");
+            }
+        }
+        for(var key in person) {
+            console.log(key + "---" + person[key]);
+            if(typeof(person[key]) === "function"){
+                console.log("---"+typeof(person[key]));
+            }
+            // console.log(key instanceof String);
+        }
+
+        delete person.name;
+        console.log(person.name);
+
+        person.name = "ww";
+        console.log(person.name);
+    </script>
+</body>
+</html>
