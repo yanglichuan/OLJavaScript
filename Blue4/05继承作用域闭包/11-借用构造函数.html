@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         function Animals(name, age, gender, color) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.color = color;
+            this.eat = function(){
+                console.log("+++++");
+            }
+         }   
+         function Person(name, age, gender, sing) {
+            //  Animals.call(this, name, age, gender);
+            // Animals(name, age, gender);
+            Animals.apply(this, [name, age, gender]);
+            this.sing = sing; 
+         }
+
+         var per = new Person("张三", 18, "男", function(){
+             console.log("-----");
+         });
+
+         // 局限性： Animal（父类构造函数）的代码必须完全适用于Person(子类构造函数) 
+         // 哪怕父类中有一个多余的eat方法
+         // PS. 但是我自己在上面添加了属性和方法，似乎又没有什么关系。
+
+
+    </script>
+</body>
+</html>

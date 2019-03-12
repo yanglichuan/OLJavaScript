@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var A = function() {};
+        // A.prototype.n = 1;
+        // var b = new A();
+        // A.prototype = {
+        //     n: 2,
+        //     m: 3
+        // }
+        // var c = new A();
+
+        // console.log(b.n); // 1
+        // console.log(b.m); // undefined
+
+        // console.log(c.n); // 2
+        // console.log(c.m); // 3
+
+        console.log("=============");
+        var F = function() {};
+
+        Object.prototype.a = function() {
+            console.log('a');
+        };
+
+        Function.prototype.b = function() {
+            console.log('b');
+        }
+
+        // var f = new F();
+
+        // f.a(); // a
+        // f.b(); // f.b is not a function
+
+        // F.a(); // a
+        // F.b(); // b
+
+        console.log("=============");
+
+
+        function Person(name) {
+            this.name = name
+        }
+        let p = new Person('Tom');
+        /*
+            Person
+            name: "Tom"
+            __proto__:
+            constructor: ƒ Person(name)
+            __proto__: Object
+        */
+        // console.log(p); 
+        /*
+        Object
+        constructor: ƒ Person(name)
+        __proto__: Object
+        */
+        // console.log(p.__proto__); 
+        /*
+            ƒ () { [native code] }
+        */
+        // console.log(Person.__proto__); 
+
+
+ 
+        var foo = {},
+        F = function(){};
+        Object.prototype.a = 'value a';
+        Function.prototype.b = 'value b';
+
+        console.log(foo.a); // value a
+        console.log(foo.b); // undefined
+
+        console.log(F.a);  // value a
+        console.log(F.b);  // value b
+
+    </script>
+</body>
+</html>

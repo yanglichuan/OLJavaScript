@@ -13,10 +13,11 @@
     <script src="js/tools.js"></script>
     <script src="js/box.js"></script>
     <script>
-        var num = Tools.getRandom(1, 10);
-        console.log(num);
-        var parent = document.getElementById("container");
-        var box = new Box(parent);
+        var random = Tools.getRandom(0, 10);
+        console.log(random);
+
+        var box = new Box(document.getElementById("container"));
+        box.random();
     </script>
 </body>
 </html>
