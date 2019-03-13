@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>认识闭包</title>
+</head>
+<body>
+    <script>
+        var fn = function (){
+            var a = 5;
+            return function() {
+                a++;
+                console.log(a);
+            }
+        }
+        var f1 = fn();
+        f1();
+        f1();
+        f1();
+
+        var f2 = fn();
+        var f3 = fn();
+        f1();
+        f2();
+        f3();
+
+        var fun = function() {
+            return function(){
+                console.log("1111");
+            }
+        }
+        var f = fun();
+        console.log(f());
+    </script>
+</body>
+</html>
