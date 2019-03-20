@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// ------------------
+        // 交换两个值不需要第三方变量
+        // var a = 5;
+        // var b = -3;
+        // a = a + b;
+        // b = a - b;
+        // a = a - b;
+        // console.log(a + ", " + b);
+// ------------------
+        // javascript是弱类型语言，在编译中不确定数据类型，只有在运行时才知道。
+        // var money = 12.3;
+        // console.log(money);
+// ------------------
+        // 如果两边是number类型，则运算操作，如果有字符串参与，则两边都当做字符串来操作。
+        // console.log(11+11);
+        // console.log(11+"a");
+// ------------------
+        // 基本数据类型不可以toString，严格来说是没有函数调用
+        // undefined.toString();  报错
+        // 1.toString();  没有报错，此时1 已经被转换成对象了。
+// ------------------
+        // typeof null boolean number string undefined
+        // typeof 判断基本数据类型除了null判断为object 其余的都可以判断，另外引用类型大多数为object类型。
+        // console.log(typeof null); // object
+// ------------------
+        // 数据类型转换 字符串转数字，如果首字母是非数字则NaN 其余转到非数字为止。
+        // var height = "12.3abc";
+        // console.log(Number.parseInt(height));// 12
+        // console.log(Number.parseFloat(height));//12.3
+        // height = "bac12";
+        // console.log(Number.parseInt(height)); // NaN
+
+        // var isB = true; // 布尔类型无法转成数字
+        // console.log(typeof isB + "  " + Number.parseInt(isB));
+        // var ice = "-5"; // ±值也可以转数字
+        // console.log(-ice);
+
+        //转换成false的情况：null  undefined  ''空字符串  0 NaN
+        // var a = null;
+        // var b;
+        // var c = "";
+        // var d = [];
+        // var e = NaN;
+        // var f = 0;
+        // console.log(Boolean(a));
+        // console.log(Boolean(b));
+        // console.log(Boolean(c));
+        // console.log(Boolean(d)); // true 对象
+        // console.log(Boolean(e));
+        // console.log(Boolean(f));
+
+
+// ------------------
+        // == 值相等就true === 值相等而且类型也一致
+        var a = 10;
+        var b = 10;
+        var c = "10";
+        console.log(a == b); // true
+        console.log(a == c); // true
+        console.log(a === c); // false
+
+
+
+
+    </script>
+</body>
+</html>
