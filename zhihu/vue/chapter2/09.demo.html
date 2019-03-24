@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <p>{{ name }}</p>
+        </div>
+        <div>
+            <p>{{ age * 3 }}</p>
+        </div>
+        <div>
+            <p>{{ getRandom() }} </p>
+        </div>
+        <div>
+            <img v-bind:src="imageUrl" alt="">
+        </div>
+        <div>
+            <input type="text" v-bind:placeholder="name">
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                name: "peter",
+                age: 18,
+                imageUrl: "https://hbimg.b0.upaiyun.com/995803cecc8f73d309dc893a35faed1e83aa55d429760-OHmjeA_sq320",
+            },
+            methods: {
+                getRandom: function() {
+                    return Math.random();
+                }
+            },
+
+        });
+    </script>
+</body>
+</html>

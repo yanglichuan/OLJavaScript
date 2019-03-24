@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- <p>{{ sayHello() }} - <a href="{{link}}">Google</a></p> -->
+        <p>{{ sayHello() }} - <a v-bind:href="link">Google</a></p>
+        <!-- 第一种方式不行，链接跳转不过去。 -->
+        <!-- v-bind： 就是将vue中定义的data 或者 方法绑定到 属性中 -->
+        <img v-bind:src="imageUrl" alt="">
+    </div>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                title: "Hello World",
+                link: "http://gogle.com",
+                imageUrl: "http://107.182.28.149/p1/girl13.com-2019-03-08-22-45-50_77.jpg"
+            },
+            methods: {
+                sayHello: function() {
+                    return this.title;
+                }
+            },
+        });
+    </script>
+</body>
+</html>
