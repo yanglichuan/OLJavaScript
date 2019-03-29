@@ -9,14 +9,14 @@
 <body>
     <script>
         var colors = ["yellow", "red", "green"];
-        // console.log(colors);
+        console.log(colors); // ["yellow", "red", "green"]
         colors.push("brown");
-        console.log(colors);
+        console.log(colors); // ["yellow", "red", "green", "brown"]
         var item = colors.pop();
-        console.log(item);
-        console.log(colors);
-        console.log(colors.pop());
-        console.log(colors);
+        console.log(item); // brown
+        console.log(colors); // ["yellow", "red", "green"]
+        console.log(colors.pop()); // green
+        console.log(colors); //  ["yellow", "red"]
     </script>
 </body>
 </html>
