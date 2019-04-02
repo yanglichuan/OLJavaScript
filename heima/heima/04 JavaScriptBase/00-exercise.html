@@ -68,7 +68,7 @@
         // console.log(a === c); // false
 // ------------------
         // 函数的定义分两种
-        // 1. 声明函数
+        // 1. 声明函数(函数声明)
         // function sum(){
         //         console.log(1+1);
         //         return 1000;
@@ -215,12 +215,27 @@
 // ------------------
         // 数组排序
         // 默认情况下的sort是对字符编码 从小到大排序
-        var arr = [25, 10, 108, 18];
-        console.log(arr.sort()); // [10, 108, 18, 25]
-        console.log(arr.sort(function(a, b){return a - b})); //  [10, 18, 25, 108]
+        // var arr = [25, 10, 108, 18];
+        // console.log(arr.sort()); // [10, 108, 18, 25]
+        // console.log(arr.sort(function(a, b){return a - b})); //  [10, 18, 25, 108]
     
-        var a = Number(3);
-        console.log(typeof a);
+        // var a = Number(3);
+        // console.log(typeof a);
+// ------------------
+         闭包与匿名函数的区别 
+         闭包是指有权访问另一个函数作用域中的变量的函数 
+         创建闭包的常见方式，就是在一个函数内部创建另一个函数 
+
+        // 函数声明有函数提升
+        sayHi();
+        // function sayHi(){
+        //         console.log("sayHi");
+        // }
+        // 函数表达式没有函数提升，这样就报错了。
+        var sayHi = function(){
+                console.log("sayHi");
+        }
+        // sayHi();
     </script>
 </body>
 </html>
