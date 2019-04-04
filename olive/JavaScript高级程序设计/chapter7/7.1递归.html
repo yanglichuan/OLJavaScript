@@ -12,8 +12,8 @@
 		if (num <= 1) {
 			return 1;
 		}else {
-			// return num * factorial(num - 1);
-			return num * arguments.callee(num - 1); // arguments.callee指向了正在执行的函数的指针
+			return num * factorial(num - 1);
+			// return num * arguments.callee(num - 1); // arguments.callee指向了正在执行的函数的指针
 		}
 	}
 	var anotherFactorial = factorial;
