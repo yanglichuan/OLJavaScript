@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <link rel="stylesheet" href="../bootstrap-3.3.7.css">
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        new Vue({
+            el: "app",
+            data: {
+                list: [{id:1, name:"奔驰", ctime: new Date()},
+                        {id:2, name:"宝马", ctime: new Date()},
+                        {id:3, name:"奥迪", ctime: new Date()}]
+            }
+        });    
+    </script>
+</body>
+</html>

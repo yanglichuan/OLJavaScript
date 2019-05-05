@@ -222,20 +222,56 @@
         // var a = Number(3);
         // console.log(typeof a);
 // ------------------
-         闭包与匿名函数的区别 
-         闭包是指有权访问另一个函数作用域中的变量的函数 
-         创建闭包的常见方式，就是在一个函数内部创建另一个函数 
+        //  闭包与匿名函数的区别 
+        //  闭包是指有权访问另一个函数作用域中的变量的函数 
+        //  创建闭包的常见方式，就是在一个函数内部创建另一个函数 
 
         // 函数声明有函数提升
-        sayHi();
+        // sayHi();
         // function sayHi(){
         //         console.log("sayHi");
         // }
         // 函数表达式没有函数提升，这样就报错了。
-        var sayHi = function(){
-                console.log("sayHi");
-        }
+        // var sayHi = function(){
+        //         console.log("sayHi");
+        // }
         // sayHi();
+// ------------------
+        // function Person(name) {
+        //         this.name = name;
+        // }
+        // var p = new Person("zs");
+        // console.log(p);
+        // console.log(p.constructor === Person);
+        // // console.log(p.)
+        
+        // function parent2(age) {
+        //         this.age = age;
+        // }
+        // var p2 = new parent2(18);
+        // console.log(p2);
+        // console.log(p2.constructor);
+        // console.log(p2.constructor === parent2);
+        // console.log(p2.constructor === Object);
+// ------------------
+        // 我们的第一个问题，为什么有的编程规范要求用 void 0 代替 undefined?现在我们就分别来看一下。
+        // Undefined 类型表示未定义，它的类型只有一个值，就是 undefined。任何变量在赋值前是 Undefined 类型、值为 undefined，
+        // 一般我们可以用全局变量 undefined(就是名为 undefined 的这个变量)来表达这个值，或者 void 运算来把任一一个表达式变成 
+        // undefined 值。
+        // 但是呢，因为 JavaScript 的代码 undefined 是一个变量，而并非是一个关键字，这是 JavaScript 语言公认的设计失误之一，
+        // 所以，我们为了避免无意中被篡改，我 建议使用 void 0 来获取 undefined 值。
+// ------------------
+//     <!-- v-bind 只能实现数据的单向绑定，从 M 自动绑定到 V， 无法实现数据的双向绑定  -->
+//     <!-- <input type="text" v-bind:value="msg" style="width:100%;"> -->
+
+//     <!-- 使用  v-model 指令，可以实现 表单元素和 Model 中数据的双向数据绑定 -->
+//     <!-- 注意： v-model 只能运用在 表单元素中 -->
+//     <!-- input(radio, text, address, email....)   select    checkbox   textarea   -->
+
+
     </script>
 </body>
 </html>
+
+
+

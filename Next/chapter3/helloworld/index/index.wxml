@@ -1,0 +1,3 @@
+<view class="title">Hello {{worlding}}</view>
+<image mode='widthFix' src='../img/cxk.gif'></image>
+<button bindtap='onClick'>点击</button>
