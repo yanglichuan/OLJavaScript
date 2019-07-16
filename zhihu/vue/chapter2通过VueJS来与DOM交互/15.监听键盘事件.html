@@ -11,11 +11,11 @@
     <div id="app">
         <button v-on:click="increase(2, $event)">Click Me</button>
         <p>{{ counter }}</p>
-        <p>
+        <p v-on:mousemove="updateCoordinates">
             Coordinates: {{ x }} / {{ y }}
-            - <span v-on:mousemove-stop> DEAD SPOT </span>
+            - <span v-on:mousemove.stop=""> DEAD SPOT </span>
         </p>
-        <input type="text" >
+        <input type="text" v-on:keyup.enter.space="alertMe">
     </div>
     <script>
         new Vue({
@@ -32,6 +32,9 @@
                 updateCoordinates: function() {
                     this.x = event.clientX;
                     this.y = event.clientY;
+                },
+                alertMe: function() {
+                    alert("Alert Me");
                 }
             },
         });

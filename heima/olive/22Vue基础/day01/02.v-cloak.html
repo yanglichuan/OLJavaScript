@@ -5,28 +5,57 @@
     <meta name="viewport" content="width= , initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- 
+        当网络不够流畅的时候，刷新数据的时候，可能会看到那些插值表达式(即花括号)
+        那么如何才能避免？
+        v-cloak 
+        1️⃣ 在元素中添加 v-clack
+        2️⃣ 在style中添加 [v-cloak] { display: none }
+    -->
     <div id="app">
-        <p v-text="title01"></p>
-        <p>{{ title02 }}</p>
-        <p>{{ title }}</p>
-        <p>{{ title }}</p>
-        <p>{{ title }}</p>
+        <!-- 使用 v-cloak 能够解决 插值表达式闪烁的问题 -->
+        <p v-cloak>+++++{{msg}}·······</p>
+        <h4 v-text="msg">=============</h4>
+        <!-- 默认 v-text 是没有闪烁问题的 -->
+        <!-- v-text 会覆盖元素中原本的内容，但是插值表达式 只会替换自己的这个占位符，不会把  整个元素的内容清空。 -->
 
-        <button>按钮</button>
+        <div> {{msg2 }}</div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+
+        <!-- v-bind: 是vue中，提供用于绑定属性的指令   -->
+        <input type="button" value="按钮" v-bind:title="myTitle">
+        <!-- myTitle也可以当做一个变量，后面可以跟一些其他的。 
+        v-bind: == :  -->
+        <!-- v-on: 点击操作 但是为何后面的alert没有弹出？
+                 原因：alert此时会被当做一个变量。 -->
+        <!-- on mouseover -->
+        <input type="button" value="按钮" :title="myTitle + 123" 
+                v-on:click="alert">
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                title01: "++++++ 123 -----"
-            },
-            methods: function() {
+                msg: 'Hello World',
+                msg2: '<h1> 哈哈 这是一个大大的H1 </h1>',
+                myTitle: '这是一个自己定义的title',
 
+            },
+            methods: {
+                alert: function(){
+                    alert('hello ')
+                },
             }
-        });
+        })
     </script>
 </body>
 </html>

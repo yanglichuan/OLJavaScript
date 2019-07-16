@@ -2,40 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width= , initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="../vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <button v-on:click="start">浪起来</button>
-        <button v-on:click="stop">猥琐发育</button>
-        {{msg}}
+        <div v-cloak>{{msg}}</div>
+        <input type="button" value="开始" v-on:click="start">
+        <input type="button" value="结束" v-on:click="stop">
     </div>
     <script>
+        // 注意：在vm实例中，如果想要获取data上的数据，或者想要调用methods中的方法，必须通过this。数据属性名
+        // 或 this.方法名来进行访问，这里的shit，就表示我们new出来的vm实例对象。
         new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                msg: "猥琐发育，别浪~",
-                interval: null
+                msg: '别浪，我们能赢~~~~',
+
             },
             methods: {
-                start: function(){
-                    if (this.interval != null) return;
-                    this.interval = setInterval(() => {
-                        var begin = this.msg.substring(0, 1);
-                        var end = this.msg.substring(1);
-                        this.msg = end + begin;
-                    }, 400);
+                start() {
+                    // =============
+                    // let _this = this;
+                    // setInterval(function () {
+                    //     let start = _this.msg.substring(0, 1);
+                    //     let end = _this.msg.substring(1);
+                    //     _this.msg = end + start;
+                    // }, 400)
+                    // =================
+                    // 注意： vm实例，会监听自己身上data中所有数据的改变，只要数据已发生改变，就会自动
+                    // 把最新的数据，从data上同步到页面中
+
+                    setInterval( () => {
+                        let start = this.msg.substring(0, 1);
+                        let end = this.msg.substring(1);
+                        this.msg = end + start;
+                    }, 400)
+                    // es6中的箭头函数 this即指向外面的
+                } ,
+                stop: function(){
 
                 },
-                stop: function() {
-                    clearInterval(this.interval);
-                    this.interval = null;
-                }
             },
-        });
+        })
     </script>
 </body>
 </html>
