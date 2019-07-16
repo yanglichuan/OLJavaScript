@@ -16,6 +16,8 @@
         </div>
     </div>
     <script>
+        // 优化bug 03跑马灯的示例中 如果多次点击开始按钮，则一直循环，而停不下来。为何？
+        // 原因在于每次点击开始的时候就一直触发定时器。每次点击都会创建一个新的定时器，所以需要判断
         new Vue({
             el: '#app',
             data: {
@@ -24,6 +26,11 @@
             },
             methods: {
                 start(){
+                    if (this.interval != null) {
+                        console.log("null....")
+                        return;
+                    }
+                    console.log("yes ----")
                     this.interval = setInterval( () => {
                         let begin = this.msg.substring(0, 1);
                         let end = this.msg.substring(1);
@@ -31,8 +38,9 @@
                     }, 400)
                 },
                 stop(){
-                    // this.interval = null;
                     clearInterval(this.interval);
+                    // 每当清除之后也需要置空
+                    this.interval = null;
                 }
             },
         })

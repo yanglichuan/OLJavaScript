@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .inner {
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 冒泡事件 -->
+    <div id="app">
+        <!-- 使用.stop 阻止冒泡 -->
+        <!-- <div class="inner" v-on:click="divHandler">
+            <input type="button" value="戳他" @click.stop="btnHandle">
+        </div> -->
+
+        <!-- 使用.prevent 阻止默认行为 -->
+        <!-- <a href="http://www.baidu.com" @click.prevent="linkHandle">百度</a> -->
+
+        <!-- .capture 捕获  -->
+        <!-- <div class="inner" v-on:click.capture="divHandler">
+            <input type="button" value="戳他" @click="btnHandle">
+        </div> -->
+
+        <!-- .self 实现只有点击当前元素时候，才会触发 -->
+        <!-- <div class="inner" v-on:click.self="divHandler">
+            <input type="button" value="戳他" @click="btnHandle">
+        </div> -->
+
+        <!-- .once 默认使用一次。顺序无影响 -->
+        <a href="http://www.baidu.com" @click.prevent.once="linkHandle">百度</a>
+        <a href="http://www.baidu.com" @click.once.prevent="linkHandle">百度</a>
+
+        <!-- self只会阻止自己身上的冒泡行为，并不会阻止其他的，而stop则会阻止所有的。 -->
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                divHandler(){
+                    console.log('父类div')
+                },
+                btnHandle(){
+                    console.log('戳他按钮');
+                },
+                linkHandle(){
+                    console.log('链接跳转');
+                }
+            },
+        });
+    </script>
+</body>
+</html>
