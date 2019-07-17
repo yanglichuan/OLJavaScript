@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="" id="" v-model="n1">
+        <select name="" id="" v-model="opt">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" name="" id="" v-model="n2">
+        <input type="button" value="=" @click="cal">
+        <input type="text" name="" id="" v-model="result">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                opt: '+',
+                n1: 0,
+                n2: 0,
+                result: 0,
+            },
+            methods: {
+                cal(){
+                    switch(this.opt) {
+                        case '+':
+                            console.log(this.n1 + "-----" + this.n2);
+                            this.result = parseInt(this.n1) + parseInt(this.n2) ;
+                            break;
+                        case '-':
+                            this.result = this.n1 - this.n2;
+                            break;
+                        case '*':
+                            this.result = this.n1 * this.n2;
+                            break;
+                        case '/':
+                            this.result = this.n1 / this.n2;
+                            break;
+                    }
+                }
+            },
+        });
+    </script>
+</body>
+</html>
