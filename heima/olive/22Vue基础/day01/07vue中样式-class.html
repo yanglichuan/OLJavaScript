@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .thin {
+            font-size: 10px;
+        }
+        .red {
+            color: red;
+        }
+        .italic {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="change">
+        <h1 :class="['thin', 'red', {italic: flag}]">这是一个大大标题</h1>
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                flag: true,
+            },
+            methods: {
+                change() {
+                    this.flag = !this.flag;
+                },
+            },
+        });    
+    </script>
+</body>
+</html>
