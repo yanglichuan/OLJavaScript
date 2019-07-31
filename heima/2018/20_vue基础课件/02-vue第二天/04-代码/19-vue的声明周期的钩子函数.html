@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <p>{{msg}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // beforeXXX
+    // XXXed
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      beforeCreate() {
+        // 在初始化数据之前调用, vm中没有data中的数据
+        console.warn('beforeCreate钩子函数')
+        console.warn(this.msg)
+      },
+      created() {
+        // 在数据初始化后执行的钩子函数
+        console.warn('created钩子函数')
+        console.warn(this.msg)
+      },
+      beforeMount() {
+        // 在页面渲染之前， 此时DOM结构还没有渲染成对应的数据
+        console.warn('beforeMount钩子函数')
+        var div = document.getElementById('app')
+        console.warn(div.innerHTML)
+      },
+      mounted() {
+        console.warn('mounted钩子函数')
+        var div = document.getElementById('app')
+        console.warn(div.innerHTML)
+      },
+      beforeUpdate() {
+        // 在页面渲染之前， 此时DOM结构还没有渲染成对应的数据
+        console.warn('beforeUpdate钩子函数')
+        var div = document.getElementById('app')
+        console.warn(div.innerHTML)
+      },
+      updated() {
+        console.warn('updated钩子函数')
+        var div = document.getElementById('app')
+        console.warn(div.innerHTML)
+      },
+      beforeDestroy() {
+        // 在页面渲染之前， 此时DOM结构还没有渲染成对应的数据
+        console.warn('beforeDestroy钩子函数')
+      },
+      destroyed() {
+        // 在页面渲染之前， 此时DOM结构还没有渲染成对应的数据
+        console.warn('destoryed钩子函数')
+      },
+    })
+  </script>
+</body>
+
+</html>

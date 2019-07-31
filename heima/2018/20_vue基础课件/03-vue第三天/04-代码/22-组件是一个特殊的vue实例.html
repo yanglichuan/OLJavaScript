@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <hello></hello>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 组件是一个带名字的特殊的vue实例
+    // 参数1：组件名
+    // 参数2：组件的配置项
+    Vue.component('hello', {
+      template: `
+        <div>
+          <p>大家好，我是hello组件{{msg}}</p>
+          <p>我还是hello组件</p>
+          <button @click="clickFn">别我点</button>
+        </div>
+      `,
+      data() {
+        return {
+          msg: 'hello'
+        }
+      },
+      methods: {
+        clickFn() {
+          console.log('电你咋滴')
+        }
+      },
+      created() {
+        console.log('我是组件的钩子函数')
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

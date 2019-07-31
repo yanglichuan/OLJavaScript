@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <hello></hello>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 组件是可以复用的特殊的vue实例，可以把组件理解为就是自定义的html标签
+    Vue.component('hello', {
+      template: `
+        <div>
+          <div>hello, {{msg}}</div>
+          <p>哈哈</p>
+        </div>
+      `,
+      data: function () {
+        return {
+          msg: '哈哈'
+        }
+      },
+      created() {
+        console.log('呵呵')
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

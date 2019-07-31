@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 使用组件 -->
+    <hello></hello>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 定义全局组件
+    // 参数1： 组件名
+    // 参数2： 组件的配置项
+    Vue.component('hello', {
+      // 组件的template中，必须保证只有一个根元素
+      template: '<div>' +
+        '<p>大家好，我是hello组件</p>' +
+        '<p>我是另一个p标签</p>' +
+        '</div>'
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

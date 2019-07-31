@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- {{}} : 插值表达式  插值 小胡子语法  mustache语法 -->
+    <!-- 作用： 可以读取data中的数据，并且可以展示出来 -->
+    <p>{{msg}}</p>
+
+    <!-- 注意1： 不能data中不存在的数据 -->
+    <!-- <p>{{age}}</p> -->
+
+    <!-- 注意2：插值 插值表达式，说明可以在{{}}中写表达式 -->
+    <p>{{msg + 100}}</p>
+    <p>{{msg.toUpperCase()}}</p>
+    <p>{{[1,2,3].join('-')}}</p>
+    <p>{{2>1?'哈哈':'呵呵'}}</p>
+    <p>2</p>
+
+    <!-- 注意3：不能写语句 -->
+    <!-- <p>{{for(var i = 0; i
+      < 10; i++) {console.log(i)} }}</p> -->
+
+  </div>
+
+
+  <script src="vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>
+
+
+<!-- 1. 读取data中的数据，进行显示 -->
+<!-- 2. 注意不能使用data中不存在的数据 -->
+<!-- 3. 可以使用表达式，但是不能使用语句（出现js的关键字） -->

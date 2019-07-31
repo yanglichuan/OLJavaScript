@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-on指令的作用：用来注册事件的 -->
+    <!-- v-on:事件的名称='事件的函数' -->
+    <!-- 简写：以后注册事件用的非常的多，可以用@简写 -->
+    <p>{{msg}}</p>
+    <button @click="clickFn" @mouseenter="clickFn">点我！！！！</button>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      // data用于提供vue中使用到的数据
+      data: {
+        msg: 'hello vue'
+      },
+      // methods: 用于提供vue中使用到的方法
+      methods: {
+        clickFn() {
+          // 在vue里面，在methods中的所有的function内的this都是当前vue实例
+          console.log('憋点我')
+          console.log(this.msg)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+
+<!-- 1. v-on:click="clickFn" -->
+<!-- 2. @click="clickFn" -->
+<!-- 3. 在data中提供的是数据，methods中提供的是方法 -->
+<!-- 4. 在methods中的函数内的this指向的是当前vue实例，所有在methods的方法中，可以通过this.xxx访问到data中的数据 -->

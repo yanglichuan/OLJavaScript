@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .modal {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      position: relative;
+    }
+
+    .modal button {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .modal p {
+      height: 30px;
+      line-height: 30px;
+      background-color: green;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <modal>你确定要退出系统吗？</modal>
+    <modal>你确定要删除这个内容吗？</modal>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    //定义一个模态框组件
+    Vue.component("modal", {
+      template: `
+        <div class="modal">
+          <p>温馨提示</p>
+          <div>
+            <slot></slot>
+          </div>
+          <button>关闭</button>
+        </div>
+      `,
+    });
+
+    var vm = new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+</html>

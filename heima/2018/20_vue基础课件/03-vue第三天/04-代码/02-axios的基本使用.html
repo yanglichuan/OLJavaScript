@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script src="./node_modules/axios/dist/axios.js"></script>
+  <script>
+    // 发送get请求
+    // // get请求第二个参数： 配置对象
+    axios.get('http://localhost:9999/getBrandInfo').then(res => {
+      console.log(res.data)
+    })
+
+    // //post请求的第二个参数是请求体
+    // axios.post('http://localhost:9999/addBrand', {
+    //   name: '宝马',
+    //   desc: '哈哈',
+    //   time: new Date()
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    // axios({
+    //   url: 'http://localhost:9999/getBrandList',
+    //   method: 'get'
+    // }).then(res => {
+    //   console.log(res.data)
+    // })
+
+    axios({
+      url: 'http://localhost:9999/getBrandInfo',
+      method: 'get',
+      params: {
+        id: 2
+      }
+    }).then(res => {
+      console.log(res.data)
+    })
+
+    axios({
+      url: 'http://localhost:9999/addBrand',
+      method: 'post',
+      data: {
+        name: 'haha',
+        desc: 'xixi',
+        time: new Date()
+      }
+    }).then(res => {
+      console.log(res.data)
+    })
+
+
+  </script>
+</body>
+
+</html>

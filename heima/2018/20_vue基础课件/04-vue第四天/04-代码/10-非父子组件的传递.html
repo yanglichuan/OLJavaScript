@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <jack></jack>
+    <rose></rose>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // bus就是要一个空的vue实例
+    const bus = new Vue()
+
+
+    Vue.component('jack', {
+      template: `
+        <div>
+          我是jack, <button @click="send">对rose说</button>
+        </div>
+      `,
+      data() {
+        return {
+          msg: 'you jump i jump'
+        }
+      },
+      methods: {
+        send() {
+          // 触发公交车的get请求
+          bus.$emit('get', this.msg)
+        }
+      }
+    })
+
+    Vue.component('rose', {
+      template: `
+        <div>我是rose, jack对我说: </div>
+      `,
+      created() {
+        // rose给公交车注册了一个事件， 获取msg
+        bus.$on('get', function (msg) {
+          console.log('我获取到了jack的语音')
+          console.log(msg)
+        })
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

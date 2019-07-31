@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="text" v-model="msg">
+    {{msg}}
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      // 提供数据
+      data: {
+        msg: 'hello vue'
+      },
+      // 提供方法
+      methods: {
+
+      },
+      // 监视数据的变化
+      watch: {
+        //newVal: 变化后的数据  
+        //oldVal: 变化前的数据
+        msg: function(newVal, oldVal) {
+          console.log('监视了msg的数据变化', newVal, oldVal)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

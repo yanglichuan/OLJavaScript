@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="start">开始</button>
+    <button @click="stop">结束</button>
+    <h1>{{msg}}</h1>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    /* 
+      1. 给开始按钮注册点击事件
+      2. 在methods里面提供一个方法
+      3. 开启一个定时器， 把字符串的第一个字符串添加到字符串的最后面
+
+
+      1. 给结束按钮注册点击事件
+      2. 提供一个 stop方法
+      3. 清除上面开启的定时器
+    */
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '最近成都小姐姐火了,只要能带我吃饭就可以了~~~',
+        timeId: ''
+      },
+      methods: {
+        start() {
+          // 开启定时器  注意定时器内部的this指向了window，我们使用了箭头函数解决this
+          if (this.timeId) return
+          this.timeId = setInterval(() => {
+            // 把字符串的第一个字符串放到最后一个字符
+            let first = this.msg[0]
+            // 放到最后一个字符串
+            this.msg = this.msg.slice(1) + first
+          }, 300)
+        },
+        stop() {
+          clearInterval(this.timeId)
+          this.timeId = ''
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

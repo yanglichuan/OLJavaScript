@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .son {
+      background-color: pink;
+      height: 150px;
+      width: 300px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <son @get="getMsg"></son>
+    <ul>
+      <li v-for="item in list">{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // 父组件如何获取子组件的内容
+    // 当子组件点击添加的时候，需要把值给父组件
+    Vue.component('son', {
+      template: `
+        <div class="son">
+          <h3>这是子组件</h3>
+          <input type="text" v-model="msg">
+          <button @click="send">添加</button>
+        </div>
+      `,
+      data() {
+        return {
+          msg: ''
+        }
+      },
+      methods: {
+        // 点击子组件的时候，需要把值传递给父组件
+        send: function () {
+          this.$emit('get', this.msg)
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        list: ['剁椒鱼头', '蚂蚁上树']
+      },
+      methods: {
+        getMsg: function (msg) {
+          console.log('我是父组件的方法')
+          console.log('哈哈，子元素的内容拿到了', msg)
+          this.list.push(msg)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

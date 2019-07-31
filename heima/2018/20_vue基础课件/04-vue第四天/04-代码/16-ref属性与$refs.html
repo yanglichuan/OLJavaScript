@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- vue中允许给一个标签或者是组件添加一个属性 ref -->
+    <!-- 将来在当前的vue实例中vm中可以通过 $refs去获取 -->
+    <!-- reference -->
+    <div ref="dv">哈哈哈哈</div>
+    <p>呵呵呵呵</p>
+    <span ref="sp">嘤嘤嘤</span>
+    <son ref="son"></son>
+    <button @click="get">获取内容</button>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    Vue.component('son', {
+      template: `
+        <div>我是一个son组件</div>
+      `,
+      data() {
+        return {
+          msg: 'hello'
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        get() {
+          // 这是父组件主动去获取子组件的数据
+          console.log(this.$refs.son.msg)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

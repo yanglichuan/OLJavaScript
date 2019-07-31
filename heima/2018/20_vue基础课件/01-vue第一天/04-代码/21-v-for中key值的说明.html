@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <!-- 需要给key指定一个唯一的值 -->
+      <li v-for="item in list" :key="item.id"> <input type="text"> {{item.title}} ---- {{item.text}}</li>
+    </ul>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        list: [
+          { id: 5, title: '忘情水', url: '刘德华', text: '给我一杯忘情水' },
+          { id: 4, title: '忘情水', url: '刘德华', text: '给我一杯忘情水' },
+          { id: 1, title: '温柔', url: '五月天', text: '不打扰，就是我的温柔' },
+          { id: 2, title: '蜗牛', url: '周杰伦', text: '我要一步一步往上爬' },
+          { id: 3, title: '认真的雪', url: '薛之谦', text: '雪下得那么深' }
+        ]
+      }
+    })
+  </script>
+</body>
+
+</html>
+
+
+<!-- 在使用v-for遍历数据的时候，应该给元素加上key属性，保证每个元素的key都是唯一的 -->

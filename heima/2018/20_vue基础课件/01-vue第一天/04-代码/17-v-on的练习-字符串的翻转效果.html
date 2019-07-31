@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1. 给按钮注册点击事件 -->
+    <!-- 2. 提供一个方法 -->
+    <!-- 3. 在方法里面让 data.msg翻转即可 -->
+    <button @click="reverse">点我翻转</button>
+    <p>{{msg}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        reverse() {
+          // 如何翻转一个字符串
+          this.msg = this.msg.split('').reverse().join('')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

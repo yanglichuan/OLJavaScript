@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{msg}}</p>
+    <button @click="change">修改msg的数据</button>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        change() {
+          // 我们改了数据， 页面中的内容需要重新渲染，这个过程是异步的
+          // 这么做的目的： 为了更高效
+          this.msg = '哈哈1'
+          this.msg = '哈哈2'
+          this.msg = '哈哈3'
+          this.msg = '哈哈4'
+          this.msg = '哈哈5'
+          this.msg = '哈哈6'
+          this.msg = '哈哈7'
+          this.msg = '哈哈8'
+          this.msg = '哈哈9'
+          this.msg = '哈哈0'
+          Vue.nextTick(function () {
+            // 保证DOM更新完成的第一时间调用，最早的时间获取到更新后的DOM
+            var p = document.querySelector('p')
+            console.log(p.innerHTML)
+            // 就想在这里改完数据之后，就回去到更新后的DOM内容
+          })
+        }
+      },
+      updated() {
+        var p = document.querySelector('p')
+        console.log(p.innerHTML)
+      }
+    })
+  </script>
+</body>
+
+</html>
+
+
+<!-- 
+  1. 当我们修改了实例的数据， 视图会跟着改变，，，这个过程是异步的
+  2. 我们改完数据，DOM没有得到立即的更新，无法获取到最新的DOM结构
+  3. 如果希望能够获取到更新后的数据
+    // 在修改数据后使用一个方法   vm.$nextTick  Vue.nextTick
+    // 它会在DOM更新后的第一时间去执行，所有能最早的获取到更新后的DOM
+
+    // vm.$nextTick(function(){})
+
+ -->

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>品牌管理</title>
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+      width: 850px;
+    }
+
+    .container .form-inline {
+      margin-bottom: 20px;
+    }
+
+    .table.table-bordered th,
+    .table.table-bordered td {
+      text-align: center;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form class="form-inline">
+      <div class="form-group">
+        <label>名称</label>
+        <input type="text" class="form-control" v-model="brand">
+      </div>
+      <div class="form-group">
+        <label>描述</label>
+        <!-- 只有按了enter键，才会触发 -->
+        <input type="text" @keyup.enter="add" class="form-control" v-model="desc">
+      </div>
+      <button type="button" @click="add" class="btn btn-primary">添加</button>
+    </form>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="10%">序号</th>
+          <th width="20%">名称</th>
+          <th width="30%">描述</th>
+          <th width="30%">创建时间</th>
+          <th width="10%">操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 这个tr应该在没有数据的额时候才显示 -->
+        <tr v-if="list.length === 0">
+          <td colspan="5">目前没有更多的数据</td>
+        </tr>
+        <tr :class="{info: index%2===0, danger: index%2===1}" v-for="(item, index) in list" :key="item.id">
+          <td>{{index + 1}}</td>
+          <td>{{item.brand}}</td>
+          <td>{{item.desc}}</td>
+          <td>{{item.time}}</td>
+          <!-- 注册事件的时候， 事件名可以是调用的方式 -->
+          <td><a href="#" @click.prevent="del(item.id)">删除</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="./node_modules/vue/dist/vue.js"></script>
+
+  <!--
+    列表渲染思路 
+    1. 准备列表的数据
+    2. 使用v-for指令渲染
+   
+   添加思路：
+    1. 点击添加按钮
+    2. 提供一个add 方法
+    3. 获取品牌的名称和描述
+    4. 存到list中
+
+    删除思路
+    1. 点击删除按钮
+    2. 准备一个删除的方法 del    不能叫delete  
+    3. 根据要删除的id值， 获取到数组的下标
+    4. 根据下标删除数据
+   -->
+  <script>
+
+    const vm = new Vue({
+      el: '.container',
+      data: {
+        list: [
+          { id: 1, brand: '劳斯莱斯幻影', desc: '你要是出生的时候买不起', time: new Date() },
+          { id: 2, brand: '五菱宏光', desc: '秋名山车神标配', time: new Date() },
+          { id: 3, brand: '奥拓', desc: '只能买到二手了', time: new Date() }
+        ],
+        brand: '',
+        desc: '',
+        index: 3
+      },
+      methods: {
+        add() {
+          // let id
+          // if (this.list.length === 0) {
+          //   id = 1
+          // } else {
+          //   id = this.list[this.list.length - 1].id + 1
+          // }
+
+          // 往list中添加数据
+          this.list.push({
+            id: ++this.index,
+            brand: this.brand,
+            desc: this.desc,
+            time: new Date()
+          })
+          // 清空
+          this.brand = ''
+          this.desc = ''
+        },
+        del(id) {
+          // 根据id获取到对应的下标
+          let idx = this.list.findIndex(item => item.id === id)
+          this.list.splice(idx, 1)
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

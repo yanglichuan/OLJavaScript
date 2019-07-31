@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-text指令读取data中的数据，并且修改当前元素的innerText（textContent）属性 -->
+    <div v-text="msg"></div>
+    <div>大家好，我是{{msg}}</div>
+
+    <!-- v-html指令，修改当前元素的innerHTML属性， 标签可以生效 -->
+    <div v-html="text">111</div>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '<h3>hello vue</h3>',
+        text: '<a href="http://web.itcast.cn?document.cookie">点我，看片</a>'
+      }
+    })
+  </script>
+</body>
+
+</html>

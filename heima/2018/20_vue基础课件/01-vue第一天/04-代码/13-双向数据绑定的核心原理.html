@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="text">
+
+  <script>
+
+    var data = {
+      msg: 'hello vue'
+    }
+
+    var input = document.querySelector('input')
+    input.value = data.msg
+
+    // view到model   文本框的值发生了改变，需要改变msg的值
+    input.oninput = function () {
+      data.msg = this.value
+    }
+
+    // model到view   data.msg属性发生了改变，需要改变文本框的value值
+    // 问题：如何才能知道对象的某个数据发生了改变？？？？
+    // 数据的劫持  Object.defineProperty给msg属性增加修饰（get set）
+    var temp = data.msg
+    Object.defineProperty(data, 'msg', {
+      // 如果获取data.msg的值的时候，会被get方法劫持，调用get方法，结果是get方法的返回值
+      get() {
+        console.log('你获取了data.msg的值')
+        return temp
+      },
+      // 给data.msg设置值的，会被set方法劫持，参数就是劫持到的值
+      set(value) {
+        console.log('你设置了data.msg的值')
+        temp = value
+        input.value = temp
+      }
+    })
+
+  </script>
+</body>
+
+</html>

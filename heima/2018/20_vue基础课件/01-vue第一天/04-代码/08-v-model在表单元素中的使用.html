@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>v-model用于文本框</h3>
+    <input type="text" v-model="msg">
+    <p>{{msg}}</p>
+
+    <h3>v-model用于textarea</h3>
+    <textarea v-model="msg2" rows="10"></textarea>
+    <p>{{msg2}}</p>
+
+    <h3>v-model用于checkbox</h3>
+    <input type="checkbox" v-model="flag">
+    <p>{{flag}}</p>
+
+    <h3>v-model用于select框</h3>
+    <select v-model="city">
+      <option value="1">北京</option>
+      <option value="2">上海</option>
+      <option value="3">广州</option>
+      <option value="4">深圳</option>
+    </select>
+    <p>{{city}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        msg2: '文本框',
+        flag: false,
+        city: 2
+      }
+    })
+  </script>
+</body>
+
+</html>

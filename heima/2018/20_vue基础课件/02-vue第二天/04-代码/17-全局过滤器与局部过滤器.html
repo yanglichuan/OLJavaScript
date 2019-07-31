@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    {{msg | myFilter}}
+  </div>
+
+  <div id="app2">
+    {{msg | myFilter}}
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // 创建全局过滤器, 全局过滤器在所有的vue实例中都能使用
+    // Vue.filter('myFilter', function (input) {
+    //   return '111'
+    // })
+
+    // 局部过滤器： 只有在当前vue实例中才能使用的过滤器
+    var vm = new Vue({
+      el: '#app',
+      // 提供数据
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+
+      },
+      // 提供过滤器
+      filters: {
+        // 一个局部过滤器
+        myFilter: function (input) {
+          return input.toUpperCase()
+        }
+      }
+    })
+
+    var vm2 = new Vue({
+      el: '#app2',
+      data: {
+        msg: 'hello vue2'
+      }
+    })
+  </script>
+</body>
+
+</html>

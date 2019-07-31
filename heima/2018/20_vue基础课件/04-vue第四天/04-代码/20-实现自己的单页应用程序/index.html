@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="base.css">
+</head>
+
+<body>
+  <ul>
+    <li><a href="#/home">我的首页</a></li>
+    <li><a href="#/music">我的音乐</a></li>
+    <li><a href="#/friend">我的朋友</a></li>
+  </ul>
+  <div class="content">
+
+  </div>
+  <script src="axios.js"></script>
+  <script>
+    var content = document.querySelector(".content")
+    function fn() {
+      // console.log('锚点值发生了改变')
+      var hash = location.hash
+      if (hash === '#/home') {
+        // 发送ajax请求，获取首页数据
+        axios.get('home.json').then(res => {
+          //console.log(res.data)
+          content.innerHTML = res.data.content
+        })
+      } else if (hash === '#/music') {
+        axios.get('music.json').then(res => {
+          //console.log(res.data)
+          content.innerHTML = res.data.content
+        })
+      } else if (hash === '#/friend') {
+        axios.get('friend.json').then(res => {
+          //console.log(res.data)
+          content.innerHTML = res.data.content
+        })
+      }
+    }
+
+    fn()
+    window.addEventListener('hashchange', function () {
+      fn()
+    })
+  </script>
+</body>
+
+</html>

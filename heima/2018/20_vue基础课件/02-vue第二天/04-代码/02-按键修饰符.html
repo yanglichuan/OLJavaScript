@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-model="msg" @keyup.queding="fn">
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // 1. 方式1： 注册事件后面直接接上 .keycode   13  27
+    // 2. 方式2： 在vue中，提供了大量的按键修饰符的名字  按键的别名只提供了部分
+    // 3. 方法3： 可以自定义别名  Vue.config.keyCodes.queding = 13 
+    // enter
+    // esc
+    // delete
+    // tab
+    // up down left right
+    // f2 ctrl  alt
+    Vue.config.keyCodes.queding = 13
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: ''
+      },
+      methods: {
+        fn() {
+          console.log('哈哈')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

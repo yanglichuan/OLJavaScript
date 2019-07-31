@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="clickFn">点击修改数据</button>
+    <p>{{msg}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        clickFn () {
+          // 数据变化了， view中的内容也要跟着变
+          this.msg = '你好啊，vue1'
+          this.msg = '你好啊，vue2'
+          this.msg = '你好啊，vue3'
+          this.msg = '你好啊，vue4'
+          this.msg = '你好啊，vue5'
+          // 测试代码
+          // 注意：在vue中数据发生了改变，DOM中的数据也会跟着发生改变，但是这个过程是异步的
+          // 目的：为了提升性能，vue会等代码执行完，然后才更新DOM，这样可以避免频繁的渲染DOM
+          //let result = document.querySelector('p').innerHTML
+
+          // 在实际开发中，有可能需要在数据改变之后，获取到更新之后的DOM数据
+          // 这个时候可以使用 $nextTick函数
+          // 当vue更新完DOM后，会自动调用$nextTick函数，确保在这个函数中可以获取到DOM结构
+          this.$nextTick(function() {
+            let result = document.querySelector('p').innerHTML
+            console.log(result)
+          })
+        }
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h3>默认情况</h3>
+    <p>{{msg}}</p>
+    <hr>
+    <h3>添加了v-once,只会渲染一次</h3>
+    <p v-once>{{msg}}</p>
+    <hr>
+    <h3>添加了v-pre, 一次都不渲染</h3>
+    <p v-pre>{{msg}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello Vue'
+      }
+    })
+  </script>
+</body>
+</html>

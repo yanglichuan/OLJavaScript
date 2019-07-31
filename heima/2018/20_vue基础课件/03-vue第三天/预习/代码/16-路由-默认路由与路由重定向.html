@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 6. 路由入口 -->
+    <router-link to="/home">首页</router-link>
+    <router-link to="/friend">我的朋友</router-link>
+    <router-link to="/more">更多</router-link>
+    <!-- 5. 路由出口 -->
+    <router-view></router-view>
+  </div>
+
+  <script src="vue.js"></script>
+  <!-- 1. 引入vue-router.js -->
+  <script src="./node_modules/vue-router/dist/vue-router.js"></script>
+  <script>
+    //3. 创建组件
+    const Home = Vue.component('Home', {
+      template:`
+        <div>这是home组件</div>
+      `
+    })
+
+    const Friend = {
+      template:`
+        <div>这是Friend组件</div>
+      `
+    }
+
+    const More = {
+      template:`
+        <div>这是more组件</div>
+      `
+    }
+
+    // 2. 创建路由对象
+    const router = new VueRouter({
+      // 配置路由规则， 注意：不叫routers， 而是routes
+      routes: [
+        // /home 对应 Home组件
+        {path: '/home', component: Home},
+        {path: '/friend', component: Friend},
+        {path: '/more', component: More},
+        {path: '/', redirect: '/home'}
+        
+      ]
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      //4. 将路由对象与实力关联
+      router: router
+    })
+
+   
+  </script>
+</body>
+</html>

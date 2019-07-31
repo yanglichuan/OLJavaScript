@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let obj = {
+      name: 'cc',
+      age: 18,
+      yanzhi: 99.9
+    }
+
+    // 可以给对象定义一个新的属性，或者修改一个已经存在的属性
+    // configurable: 是否可配置
+    // enumerable: 是否可遍历
+    // writable: 是否可以修改
+    let temp = obj.yanzhi
+    Object.defineProperty(obj, 'yanzhi', {
+      enumerable: false,
+      // writable: false,
+      // 将来获取obj的yanzhi属性会调用get方法， 而且得到的结果就是get方法的返回值
+      get: function () {
+        console.log('get方法被调用了')
+        return temp
+      },
+      // 将来给yanzhi设置值的时候，调用set方法, 
+      // set方法会把设置的值给劫持到  
+      set: function (value) {
+        console.log('set方法被调用了')
+        temp = value
+      }
+    })
+
+
+
+  </script>
+</body>
+
+</html>

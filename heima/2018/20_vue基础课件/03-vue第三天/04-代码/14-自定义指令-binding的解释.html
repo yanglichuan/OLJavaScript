@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- v-指令名   v-focus -->
+  <!-- v-指令名 = '指令的值'  v-text="msg" -->
+  <!-- v-指令名:参数 = '指令值' v-bind:title="msg" v-on:click="clickFn" -->
+  <!-- v-指令名:参数.修饰符 = '指令值' v-on:click.stop='clickFn' -->
+  <div id="app">
+    <input type="text" v-focus:title.aa.bb="msg + 1">
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    Vue.directive('focus', {
+      inserted(el, binding) {
+        console.log('el', el)
+        /* 
+          binding参数的值
+            name: 指令的名称 不带 v-
+            value: 指令对应的值
+            arg: 指令的参数
+            modifiers: 指令的修饰符 可以有多个
+         */
+        console.log('binding', binding)
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

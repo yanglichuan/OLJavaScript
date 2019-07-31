@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .fade-enter {
+      opacity: 0;
+    }
+
+    .fade-enter-to {
+      opacity: 1;
+    }
+
+    .fade-enter-active {
+      transition: all 1s
+    }
+
+    .fade-leave {
+      opacity: 1;
+    }
+
+    .fade-leave-to {
+      opacity: 0;
+    }
+
+    .fade-leave-active {
+      transition: all 1s
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="isShow = true">显示</button>
+    <button @click="isShow = false">隐藏</button>
+
+    <!-- 1. 把需要做动画的元素使用 transition包裹即可 -->
+    <!-- 2. 指定每个状态的样式 -->
+    <transition name="fade">
+      <p v-show="isShow">{{msg}}</p>
+    </transition>
+
+    <transition name="slide">
+      <div v-show="isShow">我是一个div</div>
+    </transition>
+
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        isShow: true
+      }
+    })
+  </script>
+</body>
+
+</html>

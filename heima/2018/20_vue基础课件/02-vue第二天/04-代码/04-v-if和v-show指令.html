@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    p {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+
+    <h3>通过v-show显示隐藏</h3>
+    <!-- 控制元素的显示或者隐藏， 如果值是一个true，表示显示，如果是false，表示隐藏 -->
+    <!-- v-show:通过css样式，display:block和display:none来控制 -->
+    <p v-show="isShow">v-show</p>
+
+    <h3>通过v-if显示隐藏</h3>
+    <!-- v-if通过创建和删除元素来实现 -->
+    <!-- 控制元素的显示或者隐藏，如果值为true，显示  false：隐藏 -->
+    <p v-if="isShow">v-if</p>
+
+
+    <!-- v-if和v-show的使用情况 -->
+    <!-- 1. 如果一个元素需要频繁的显示或者隐藏，应该用 v-show -->
+    <!-- 2. 如果一个元素要么显示，要么隐藏，应该用v-if -->
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        isShow: true
+      }
+    })
+  </script>
+</body>
+
+</html>

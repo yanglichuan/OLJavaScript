@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-focus>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 定义指令
+    // 参数1： 指令的名字
+    Vue.directive('focus', {
+      // 5个钩子函数 ： 在特定的时机vue会自动去调用的函数
+      // 指令第一次绑定到元素时调用
+      // el  binding   el:表示的当前的元素
+      bind() {
+
+      },
+      // 指令所在的元素 插入到父元素中的时候执行
+      inserted(el) {
+        console.log('h1111')
+        el.focus()
+      },
+      // 当指令的值发生改变的时候执行
+      update() {
+
+      },
+      // 当所在组件全部更新的时候调用
+      componentUpdated() {
+
+      },
+      // 当指令与元素解绑的时候触发
+      unbind() {
+
+      }
+    })
+
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello'
+      }
+    })
+  </script>
+</body>
+
+</html>

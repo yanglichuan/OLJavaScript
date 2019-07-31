@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 入口 -->
+    <router-link to="home">我的首页</router-link>
+    <router-link to="music">我的音乐</router-link>
+    <router-link to="friend">我的朋友</router-link>
+    <!-- 出口 将来匹配的组件的显示位置 -->
+    <router-view></router-view>
+  </div>
+
+  <script src="vue.js"></script>
+  <script src="vue-router.js"></script>
+  <script>
+    // 提供组件
+    const Home = {
+      template: `<div>这是首页组件</div>`
+    }
+    const Music = {
+      template: `<div>这是音乐组件</div>`
+    }
+    const Friend = {
+      template: `<div>这是朋友组件</div>`
+    }
+
+    // 创建路由对象
+    const router = new VueRouter({
+      routes: [
+        // path: 路由的路径  
+        // component: 组件
+        // name: 路径的名称
+        { path: '/', redirect: '/home' },
+        { path: '/home', name: 'home', component: Home },
+        { path: '/music', name: 'music', component: Music },
+        { path: '/friend', name: 'friend', component: Friend }
+      ]
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      router
+    })
+  </script>
+</body>
+
+</html>

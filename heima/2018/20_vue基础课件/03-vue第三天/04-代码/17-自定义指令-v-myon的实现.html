@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button v-myon:click='clickFn'>按钮</button>
+    <a href="http://web.itcast.cn" v-myon:click="clickFn">点我呀</a>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    Vue.directive('myon', {
+      /* 
+        v-on:
+        给当前元素注册对应的事件
+       */
+      bind(el, binding) {
+        el.addEventListener(binding.arg, function (e) {
+          // 现在可以在function内部增加很多的逻辑
+          binding.value()
+          // 判断是否有modifiers.prevent
+          if (binding.modifiers.prevent) {
+            e.preventDefault()
+          }
+          if (binding.modifiers.stop) {
+            e.stopPropagation()
+          }
+        })
+      },
+      update(el, binding) {
+        el.addEventListener(binding.arg, binding.value)
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        clickFn() {
+          console.log('哈哈')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

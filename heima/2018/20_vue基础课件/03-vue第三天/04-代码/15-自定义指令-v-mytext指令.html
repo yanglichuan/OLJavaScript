@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-cctext -->
+    <p v-cctext="msg"></p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    /* 
+      v-text: 功能
+        设置当前元素的innerText的值
+    */
+    Vue.directive('cctext', {
+      // 一来就设置当前元素的innerText值
+      bind(el, binding) {
+        el.innerText = binding.value
+      },
+      // 当msg发生了改变，修改innerText的值
+      update(el, binding) {
+        el.innerText = binding.value
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

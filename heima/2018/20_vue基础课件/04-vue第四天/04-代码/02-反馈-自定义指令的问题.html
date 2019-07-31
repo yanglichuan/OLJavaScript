@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <a href="http://web.itcast.cn" v-myon:click="clickFn">按钮</a>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // bind update
+    // 很简单的函数使用技巧
+    Vue.directive('myon', (el, binding) => {
+      // el: 表示：当前元素
+      // binding: 一个对象，指令相关的数据
+      // name: 指令的名字
+      // value:指令的值
+      // arg: 指令的参数
+      // modifiers:修饰符
+      //                      click          clickFn
+      el.addEventListener(binding.arg, function (e) {
+        binding.value()
+        if (binding.modifiers.prevent) {
+          e.preventDefault();
+        }
+      })
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        clickFn() {
+          console.log(this.msg)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

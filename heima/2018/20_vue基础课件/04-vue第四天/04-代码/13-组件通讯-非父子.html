@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <jack></jack>
+    <rose></rose>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 事件总线
+    var bus = new Vue()
+
+    // jack要给rose发数据
+    //1. rose要提供一个函数， 并且 给bus注册一个自定义的事件
+    //2. jack触发bus对应的事件， 传值
+
+    Vue.component('jack', {
+      template: `
+        <div>
+          这是jack
+          <button @click="send">对rose说</button>  
+        </div>
+      `,
+      data() {
+        return {
+          msg: '你下去把，我就不下去了'
+        }
+      },
+      methods: {
+        send() {
+          bus.$emit('get', this.msg)
+        }
+      }
+    })
+
+    Vue.component('rose', {
+      template: `
+        <div>这是rose</div>
+      `,
+      created() {
+        // 给bus注册一个事件
+        bus.$on('get', function (msg) {
+          console.log(msg)
+        })
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

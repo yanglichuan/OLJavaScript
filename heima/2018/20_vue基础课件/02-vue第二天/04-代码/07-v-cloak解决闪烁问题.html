@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 只要有v-cloak属性，那么会隐藏 */
+    [v-cloak] {
+      display: none
+    }
+  </style>
+</head>
+
+<body>
+  <!-- cloak -->
+  <div id="app">
+    <!-- 如果在网速很慢的时候，加载vue需要比较长的时间，会出现插值表达式闪烁 -->
+    <!-- 想要解决闪烁问题，需要使用v-cloak指令，配合css样式 -->
+
+    <!-- v-cloak指令：  在vue加载完成的时候，会自动移除v-cloak属性， -->
+
+    <!-- v-cloak指令实际用的并不多， 在后面，vue都是以单文件组件来开发，就没有这个问题 -->
+    <!-- 只有当通过script标签引入vue.js的时候才会出现 -->
+    <p v-cloak>{{msg}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>
+
+
+<!-- 1. 给需要解决闪烁的元素添加  v-cloak -->
+<!-- 2. 需要提供样式：  [v-cloak] {display: none} -->
+<!-- 3. 后期在单文件组件中不需要担心这个问题， script标签引入vue -->

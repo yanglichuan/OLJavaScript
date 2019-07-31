@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <!-- 疑问：{{}} 插值表达式   指令：v-text  v-html  v-开头的属性就叫指令 -->
+  <!-- 在data中的数据， 可以在插值表达式中使用，也可以在指令中使用 -->
+  <!-- 插值表达式不能在指令或者是属性中使用 -->
+  <div id="app">
+    <p>{{msg}}</p>
+    <p v-html='msg + 1'></p>
+    <p v-for="item in list">{{item}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        list: [1, 2, 3]
+      }
+    })
+
+
+  // 插值表达式  {{}}
+  // 指令
+    // v-bind: 给某个属性设置data中的数据  简写： :
+    // v-model: 给表单元素添加，实现了双向数据绑定
+      // 将来要获取表单元素的value值的时候，只需要v-model实现双向数据绑定
+    // v-text: 设置元素的innerText值， 如果只想要修改一部分内容，应该使用插值表达式
+    // v-html: 设置元素的innerHTML值， 永远不要用户的输入内容上使用v-html 用户是不安全
+    // v-on: 注册事件的
+      // v-on:click="clickFn"
+      // v-on:click="clickFn(id)"
+      // @click="clickFn"
+
+    // 事件修饰符
+      // .stop: 阻止事件冒泡的
+      // .prevent: 阻止浏览器默认行为的
+      // .once: 只会触发一次
+      // .self: 只有在自己身上才会触发
+      // .capture: 捕获阶段就会触发事件
+  </script>
+</body>
+
+</html>

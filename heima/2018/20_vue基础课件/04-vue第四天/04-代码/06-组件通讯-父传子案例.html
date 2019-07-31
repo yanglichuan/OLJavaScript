@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <my-list :list="foods"></my-list>
+    <my-list :list="friends"></my-list>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    Vue.component('my-list', {
+      template: `
+        <ul>
+          <li v-for="item in list">{{item}}</li>
+        </ul>
+      `,
+      props: ['list']
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        foods: ['剁椒鱼头', '炒螺丝', '红烧肉', '太安鱼'],
+        friends: ['马云', '马化腾', '王健林', '你']
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <hello></hello>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 组件是封闭的， 意思：组件之间不能通讯，正常情况，组件不能访问别的组件的数据
+    Vue.component('hello', {
+      template: `
+        <div> {{msg}} </div>
+      `,
+      data() {
+        return {
+          msg: '自己的'
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

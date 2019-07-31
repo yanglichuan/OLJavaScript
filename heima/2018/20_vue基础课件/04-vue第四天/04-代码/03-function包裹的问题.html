@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<button>按钮</button>
+
+<body>
+
+  <script>
+    // var button = document.querySelector("button")
+    // function fn() {
+    //   console.log('哈哈')
+    // }
+
+    // // 这句话的意思
+    // // 仅仅在给button注册点击事件
+    // // 每次点击的时候，，浏览器会自动调用fn
+    // button.onclick = function () {
+    //   // 这里增加很多的逻辑
+    //   fn()
+    // }
+    function fn() {
+      console.log('设置时间')
+    }
+
+    fn()
+    setInterval(function () {
+      fn()
+    }, 1000)
+
+
+  </script>
+</body>
+
+</html>

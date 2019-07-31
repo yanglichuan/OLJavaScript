@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- {{msg | aa | bb}} -->
+    <p>{{num1 | numFilter }}</p>
+    <p>{{num2 | numFilter(3) }}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    /* 
+      1. 定义一个过滤器
+        1.1 Vue.filter('名字', function(输入) {
+          return 输出
+        })
+     */
+    Vue.filter('aa', function (input) {
+      return '哈哈哈'
+    })
+    Vue.filter('bb', function (input) {
+      console.log(input)
+      return input + '嘿嘿'
+    })
+    Vue.filter('numFilter', function (input, num) {
+      num = num || 2
+      return input.toFixed(num)
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        num1: 12.33333,
+        num2: 140.2311111
+      }
+    })
+  </script>
+</body>
+
+</html>

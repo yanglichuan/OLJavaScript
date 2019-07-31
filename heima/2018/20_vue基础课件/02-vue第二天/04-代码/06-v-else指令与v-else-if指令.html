@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-else指令需要和v-if指令进行配合使用的 -->
+    <!-- v-else必须紧跟在v-if后面，不然会报错 -->
+    <!-- <p v-if="isLogin">欢迎你，尊贵的超级VIP用户</p>
+    <p v-else>你好，请先登录， 立即注册</p> -->
+    <p v-if="age >= 18">可以泡酒吧</p>
+    <p v-else-if="age >= 16">可以泡网吧</p>
+    <p v-else>在家吃鸡</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        isLogin: false,
+        age: 17
+      }
+    })
+  </script>
+</body>
+
+</html>

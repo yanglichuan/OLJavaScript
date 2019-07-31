@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <son @get="get"></son>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // 把son组件的hello传递给父组件
+
+    //1. 父组件要提供一个方法，并且给子组件注册事件
+    Vue.component('son', {
+      template: `
+        <button @click="send">给父组件传值</button>
+      `,
+      data() {
+        return {
+          msg: 'hello'
+        }
+      },
+      methods: {
+        send() {
+          // 需要给父组件发送数据
+          this.$emit('get', this.msg)
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      methods: {
+        get(msg) {
+          console.log(msg)
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

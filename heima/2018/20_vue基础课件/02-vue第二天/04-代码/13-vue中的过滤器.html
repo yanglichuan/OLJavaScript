@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 使用myFilter过滤器 -->
+    <!-- | 会把前一项的输出当成后一项的输入 -->
+    {{msg | myFilter}} {{name | myFilter}}
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // vue的过滤器： vue没有提供过滤器，需要使用过滤器，首先需要自己定义一个过滤器
+    // 过滤器用于格式化文本的输出， 比如对时间进行格式化  数字的格式化
+
+    /* 
+      // 1. 先定义一个过滤器
+
+      // 2. 使用一个过滤器
+        // 过滤器可以在插值表达式中使用
+        // | 在linux操作系统中叫做管道符
+        // {{ msg | myFilter }}
+     */
+
+    // 定义过滤器
+    // 参数1： 过滤器的名字
+    // 参数2： 过滤的逻辑
+    // Vue.filter('过滤器的名字', function() {})
+    // input就是需要过滤的内容
+    Vue.filter('myFilter', function (input) {
+      console.log(input)
+      return input.toUpperCase()
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        name: 'zhangsan'
+      }
+    })
+  </script>
+</body>
+
+</html>

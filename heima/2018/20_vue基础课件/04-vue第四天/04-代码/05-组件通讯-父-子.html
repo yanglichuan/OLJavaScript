@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <son :money="money" :car="car"></son>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    /* 
+      组件通讯分为3种情况：
+        1. 父组件传递值给子组件
+        2. 子组件传递值给父组件
+        3. 非父子关系之间的传递
+    */
+
+    // 根组件  定义了一个组件
+    // 如何形成父子组件： 在父组件的template模板中使用了子组件，才形成了父子组件
+    Vue.component('son', {
+      template: `
+        <div>
+          <div>我是子组件</div>
+          <div>我需要使用父组件的数据 ---{{money}}---{{car}}</div>
+        </div>
+      `,
+      // props类似于 data 与 computed, 也是给当前组件提供数据的
+      // props的数据不是自己的，来自于父组件的
+      props: ['money', 'car']
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        car: 'mobile',
+        money: 100
+      }
+    })
+  </script>
+</body>
+
+</html>

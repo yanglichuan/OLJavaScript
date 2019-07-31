@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="text" v-focus>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 定义指定
+    Vue.directive('focus', {
+      // 5个钩子函数，并不是都需要写
+      // 每一个钩子函数中，还有2个参数
+      //el:当前元素
+      //binding:一个对象
+      bind: function () {
+        console.log('当指令与元素绑定的时候执行，此时还没显示到页面')
+      },
+      inserted: function (el) {
+        console.log('当前元素插入到父元素中的，触发')
+        el.focus()
+      },
+      update: function () {
+        console.log('当指令的值发生改变的时候执行')
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .modal {
+      width: 300px;
+      height: 200px;
+      background-color: pink;
+      position: relative;
+    }
+
+    .modal header {
+      height: 30px;
+      background-color: green;
+      line-height: 30px;
+    }
+
+    .modal button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <modal>
+      <span slot="header">温馨提示</span>
+      <span slot="tips">你确定要删除吗</span>
+    </modal>
+    <modal>
+      <span slot="header">警告</span>
+      <span slot="tips">你的操作会删除整个数据库</span>
+    </modal>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    Vue.component('modal', {
+      template: `
+        <div class="modal">
+          <header><slot name="header"></slot></header>
+          <div><slot name="tips"></slot></div>
+          <button>关闭</button>
+        </div>
+      `
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

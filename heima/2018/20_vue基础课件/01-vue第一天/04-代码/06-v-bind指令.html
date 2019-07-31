@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<div id="app">
+  <!-- 插值表达式不能在属性中使用，只能在标签的内容中 -->
+  <!-- 如果想在标签的属性中使用data中的数据，需要使用v-bind指令 -->
+  <!-- v-bind:使用的频率是非常高的，vue中允许简写 : -->
+  <h1 :title="msg">我是一个大标题</h1>
+  <img :src="imgUrl" alt="">
+</div>
+
+<body>
+  <script src="vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        imgUrl: '01.gif'
+      }
+    })
+  </script>
+</body>
+
+</html>

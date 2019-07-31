@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <img v-mybind:title='msg' v-mybind:src="imgUrl" alt="">
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 自定义 v-mybind指令
+    // v-bind:src = 'imgUrl'
+    // 给src属性设置值  imgUrl对应的值
+    Vue.directive('mybind', {
+      bind(el, binding) {
+        // binding.name: 指令的名字
+        // binding.value: 指令的值
+        // binding.arg: 指令的参数
+        // binding.modifiers: 指令的修饰符
+        el.setAttribute(binding.arg, binding.value)
+      },
+      update(el, binding) {
+        el.setAttribute(binding.arg, binding.value)
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        imgUrl: '01.gif'
+      }
+    })
+  </script>
+</body>
+
+</html>

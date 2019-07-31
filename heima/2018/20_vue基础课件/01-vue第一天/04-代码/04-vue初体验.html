@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 3. 在vue中使用数据 -->
+    <h1>{{msg}}</h1>
+    <span>{{msg}}</span>
+    <span>{{car.name}}</span>
+  </div>
+  <!-- 1. 引入vue文件 -->
+  <script src="./node_modules/vue/dist/vue.js"></script>
+
+  <script>
+    //当我们引入了vue.js文件的时候， 暴漏了一个全局的构造函数 Vue
+    //2. 创建一个vue实例， 需要指定el 和 data 
+    const vm = new Vue({
+      el: '#app', // el：指定了vue的管理边界，指定那一块内容是vue来管理
+      data: {  // data：用于指定vue中使用的数据
+        msg: 'helle vue',
+        car: {
+          name: '法拉利',
+          price: 500
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

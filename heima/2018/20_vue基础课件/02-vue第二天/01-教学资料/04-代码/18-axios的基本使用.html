@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./node_modules/axios/dist/axios.js"></script>
+  <script>
+  
+    //发送get请求
+    // axios.get('http://localhost:9999/getBrandList').then(res=>{
+    //   console.log(res.data)
+    // })
+
+    // axios.get('http://localhost:9999/getBrandInfo?id=3').then(res=>{
+    //   console.log(res.data)
+    // })
+
+    // axios.get('http://localhost:9999/deleteBrand?id=3').then(res=>{
+    //   console.log(res.data)
+    // })
+
+     axios.post('http://localhost:9999/addBrand', {
+       name:"宝宝",
+       desc:"贝贝",
+       time: new Date()
+     }).then(res=>{
+      console.log(res.data)
+    })
+  </script>
+</body>
+</html>

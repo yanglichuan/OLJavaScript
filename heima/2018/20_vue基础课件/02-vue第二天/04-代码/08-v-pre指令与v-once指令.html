@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- v-pre指令：  vue碰到了有v-pre指令的元素，会直接跳过，不会进行解析 -->
+    <!-- v-pre: 如果我们确定这一段内容就是不需要解析的， 一篇文档 -->
+    <p v-pre>哈哈哈哈哈哈，{{msg}}</p>
+
+    <!-- v-once指令： 只会解析第一次，后续如果数据发生了改变，不会再次的解析 -->
+    <p v-once>哈哈哈哈哈哈，{{msg}}</p>
+
+    <p>哈哈哈哈哈哈，{{msg}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <div v-if="isLogin">欢迎访问，亲爱的黄金会员</div>
+    <div v-else>你还没有登录，<a href="login.html">立即登录</a></div>
+
+
+    <div v-if="age >= 18">年纪满了18岁，可以泡夜店了</div>
+    <div v-else-if="age >= 16">年纪满了16岁，可以上网了</div>
+    <div v-else>年纪满了12岁，可以上学了</div>
+
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        isLogin: true,
+        age: 18
+      }
+    })
+  </script>
+</body>
+</html>

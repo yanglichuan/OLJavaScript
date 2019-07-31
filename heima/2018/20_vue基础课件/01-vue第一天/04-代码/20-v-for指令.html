@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h3>遍历数组的基本用法</h3>
+    <ul>
+      <!-- v-for指令用于重复的渲染某一个元素 -->
+      <!-- v-for="item in list" item:数组中的每一项  list:data的数据 -->
+      <li v-for="item in list">{{item}}</li>
+
+    </ul>
+
+    <h3>遍历数组-带下标</h3>
+    <ul>
+      <li v-for="(v, i) in list">{{i}}-----{{v}}</li>
+    </ul>
+
+    <h3>遍历一个对象</h3>
+    <ul>
+      <li v-for="value in car">{{value}}</li>
+    </ul>
+
+    <h3>遍历一个对象</h3>
+    <ul>
+      <li v-for="(value, key) in car">{{key}}------{{value}}</li>
+    </ul>
+
+    <h3>遍历一个对象</h3>
+    <ul>
+      <li v-for="(value, key, index) in car">{{index}} -----{{key}}------{{value}}</li>
+    </ul>
+
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        list: ['张飞', '赵云', '马超', '黄忠', '关羽'],
+        car: {
+          brand: 'forever', // 永久
+          color: 'yellow',
+          price: 1000
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

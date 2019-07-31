@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+
+    .border {
+      border: 10px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="box border"></div>
+    <div :style="{backgroundColor: bg}" style="width: 100px; height: 100px;"></div>
+  </div>
+  <!-- 
+  1. moment
+  2. 8个钩子函数
+  3. style与class的使用
+  4. axios的使用
+ -->
+</body>
+<script src="./node_modules/moment/moment.js"></script>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      isBox: true,
+      isBorder: true,
+      bg: 'red'
+    }
+  })
+  // console.log(moment())
+
+  // 8个钩子函数  4组
+  // beforeCreate
+  // created
+  //beforeMount
+  //mounted
+  //beforeUpdate
+  //updated
+  //beforeDestroy
+  //destroyed
+
+</script>
+
+</html>

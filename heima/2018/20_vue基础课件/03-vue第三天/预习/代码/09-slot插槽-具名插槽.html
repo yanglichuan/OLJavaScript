@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .modal {
+      width: 300px;
+      height: 300px;
+      background-color: pink;
+      position: relative;
+    }
+
+    .modal button {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .modal p {
+      height: 30px;
+      line-height: 30px;
+      background-color: green;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <modal>
+      <p slot="header">温馨提示</p>
+      <div slot="content">你要删除内容吗</div>
+      <button slot="footer">关闭</button>
+    </modal>
+    <modal>
+      <!-- 指定插槽的名字 -->
+      <p slot="header">提示</p>
+      <div slot="content">你要删除这条记录吗</div>
+      <button slot="footer">开启</button>
+    </modal>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    //定义一个模态框组件
+    Vue.component("modal", {
+      // slot name='值'  带名字的插槽
+      template: `
+        <div class="modal">
+            <slot name="header"></slot>
+            <slot name="content"></slot>
+            <slot name="footer"></slot>
+        </div>
+      `,
+    });
+
+    var vm = new Vue({
+      el: '#app'
+    });
+  </script>
+</body>
+</html>

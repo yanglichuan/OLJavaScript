@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .demo {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 只有点击div本身，才会触发，点击a不会触发 -->
+    <div class="demo" @click.self.once="fn">
+      <a href="http://web.itcast.cn" @click.prevent="clickFn">点我注册事件</a>
+    </div>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 在注册事件的时候，经常性的需要阻止浏览器的默认行为或者是要阻止事件的冒泡
+    // 使用事件修饰符
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      },
+      methods: {
+        clickFn() {
+          console.log('a的事件')
+        },
+        fn() {
+          console.log('这是div的事件')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>{{car.brand}} ---- {{car.color}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        car: {
+          brand: '永久',
+          color: 'green'
+        },
+        list: ['1', '2', '3']
+      },
+      watch: {
+        // 如果想要监听复杂类型，需要使用到watch完整形态
+        // key: 需要监听的属性
+        // 值： 是一个对象
+        msg: function (value) {
+          console.log('监听到内容了', value)
+        },
+        car: {
+          handler: function (value) {
+            console.log('监听到了car的变化', value)
+          },
+          // 如果需要监听一个对象，必须指定deep为true。 除了监听本对象，还会监听对象中的属性
+          deep: true,
+          // 页面加载，会立即监听一次
+          immediate: true
+        },
+        list: {
+          handler: function (value) {
+            console.log('监听到了没', value)
+          },
+          deep: true
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type='number' v-model="n1"> +
+    <input type="number" v-model="n2"> =
+    <span>{{ sum }}</span>
+
+    <p>{{reverse}}</p>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+
+    // 计算属性也是一个属性，和data中提供的属性类似
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        n1: 0,
+        n2: 0
+      },
+      // 用于给vue提供数据的， 提供的数据是计算属性
+      // 计算属性 ： 这个属性的值是根据其他数据计算而来的
+      // 计算属性： key: 提供的计算的属性名
+      // 计算属性： 值 是一个函数，这个函数里面就是计算的逻辑, 返回值就是计算属性的值
+      // 计算属性：当依赖的数据发生了改变的时候，计算属性自动重新计算一次，值跟着就发生了改变
+      computed: {
+        sum: function () {
+          return +this.n1 + +this.n2
+        },
+        reverse: function () {
+          return this.msg.split('').reverse().join('')
+        }
+      }
+    })
+
+
+
+    // 如果没有一个新的属性，只需要监听已经存在的某个属性的变化，变化了需要做某件事情，使用watch
+
+    // 如果需要提供一个新的属性，并且这个属性依赖于其他的一些属性计算而来的，应该使用computed
+  </script>
+</body>
+
+</html>
