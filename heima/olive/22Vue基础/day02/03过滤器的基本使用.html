@@ -8,6 +8,27 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+        <p>{{msg | msgFilter | test}}</p>
+    </div>
+
+    <script>
+        Vue.filter("msgFilter", function(msg){
+            return msg.replace(/纯洁/g, '邪恶')
+        })
+        Vue.filter("test", function(msg){
+            return msg + "====="
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '曾经的我是一个纯洁的少年，纯洁的我对着魔镜说：谁是这个世界上最纯洁的人'
+            },
+            methods: {
+                
+            },
+    })
+    </script>
+
 </body>
 </html>
