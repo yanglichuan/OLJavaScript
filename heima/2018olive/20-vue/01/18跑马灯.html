@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="begin" value="开始">
+        <input type="button" @click="end" value="结束">
+        <p>{{msg}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "稳住，别浪~~ 我们能赢~",
+                timeInter: 0,
+
+            },
+            methods: {
+                begin(){
+                    if (this.timeInter) return;
+                    this.timeInter = setInterval(() => {
+                        let start = this.msg.substr(0, 1);
+                        console.log(start)
+                        this.msg = this.msg.substr(1) + start;
+                    }, 500);
+                },
+                end() {
+                    clearInterval(this.timeInter);
+                    this.timeInter = null;
+                }
+            },
+        });
+    </script>
+</body>
+</html>

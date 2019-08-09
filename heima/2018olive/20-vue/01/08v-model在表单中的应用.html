@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>表单在text中的应用</h2>
+        <input type="text" v-model="msg" id="">
+        <p>{{msg}}</p>
+        <h2>表单在textarea中的应用</h2>
+        <textarea class="" v-model="msgArea">
+            
+        </textarea>
+        <p>{{ msgArea }}</p>
+        <h2>表单在checkbox中的应用</h2>
+        <input type="checkbox" v-model="msgCheck" id="">
+        <p>{{ msgCheck }}</p>
+        <h2>表单在select中的应用</h2>
+        <select name="" v-model="msgSelect">
+            <option value="1">北京</option>
+            <option value="2">上海</option>
+            <option value="3">广州</option>
+            <option value="4">杭州</option>
+        </select>
+        <p>{{ msgSelect }}</p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "h",
+                msgArea: "e",
+                msgCheck: "true",
+                msgSelect: "2",
+            },
+            methods: {
+                
+            },
+        });
+    </script>
+</body>
+</html>
