@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <son @get="get"></son>
+    </div>
+    <script>
+        Vue.component("son", {
+            template: `
+                <div>
+                    <h3>这是子组件</h3>
+                    <input type="text" ></input>
+                    <input type="button" @click="send" value="发送"></input>
+                </div>
+            `,
+            data() {
+                return {
+                    msg: ''
+                }
+            },
+            methods: {
+                send: function() {
+                    this.$emit("get");
+                }
+            }
+        })
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "Hello Vue",
+            },
+            methods: {
+                get(){
+                    console.log("你调用了父组件");
+                },
+            },
+        });
+    </script>
+</body>
+</html>
