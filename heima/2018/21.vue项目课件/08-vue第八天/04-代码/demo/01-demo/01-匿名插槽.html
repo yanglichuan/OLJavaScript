@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <modal>
+      你确定要退出吗
+    </modal>
+
+    <modal>
+      你确定要删除吗
+    </modal>
+  </div>
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('modal', {
+      //  <slot></slot>  匿名插槽
+      template: `
+        <div>
+          <h3>这是标题</h3>
+          <div><slot></slot></div>
+          <button>关闭</button>
+        </div>
+      `
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

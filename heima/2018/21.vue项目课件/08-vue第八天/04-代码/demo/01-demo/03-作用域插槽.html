@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <modal>
+      <!-- 这个scope是一个对象，我们在插槽上定义的所有的数据都存储在scope中 -->
+      <template slot-scope="scope">
+        <ul>
+          <li v-for="item in scope.list">{{item}}</li>
+        </ul>
+        <ul>
+          <li v-for="item in scope.friends">{{item}}</li>
+        </ul>
+      </template>
+    </modal>
+
+    <modal>
+      <template slot-scope="scope">
+        <button v-for="item in scope.list">{{item}}</button>
+      </template>
+    </modal>
+
+  </div>
+
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('modal', {
+      //  <slot></slot>  匿名插槽
+      //  <slot name="content"></slot>  具名插槽
+      //  <slot :list="list"></slot>  作用域插槽，带数据的插槽
+      template: `
+        <div>
+          <slot :list="list" :friends="friends"></slot>
+        </div>
+      `,
+      data() {
+        return {
+          list: ['张飞', '赵云', '马超', '黄忠'],
+          friends: ['马云', '马化腾', '王健林', '我']
+        }
+      }
+    })
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue'
+      }
+    })
+  </script>
+</body>
+
+</html>

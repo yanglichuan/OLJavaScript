@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj = {
+      car: {
+        brand: '永久',
+        price: 1000000,
+        color: 'yellow'
+      },
+      bz: {
+        name: 'rp',
+        age: 30,
+        desc: '丑'
+      }
+    }
+
+    // 一一对应
+    //res.data
+    let { car: { price, brand }, bz: { name, desc, age } } = obj
+    console.log(price)
+    console.log(name)
+    console.log(brand)
+    console.log(desc)
+    console.log(age)
+
+  </script>
+</body>
+
+</html>
