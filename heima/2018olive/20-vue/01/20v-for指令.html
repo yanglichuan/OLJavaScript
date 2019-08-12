@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h4>v-for遍历数组</h4>
+        <ul v-for="item in list" >
+            <li>{{item}}</li>
+        </ul>
+        <h4>v-for遍历数组下标</h4>
+        <ul v-for="item,index in list" :key="index">
+            <li>{{index}}--{{item}}</li>
+        </ul>
+        <h4>v-for遍历对象</h4>
+        <ul v-for="item in obj">
+            <li>{{item}}</li>
+        </ul>
+        <h4>v-for遍历对象下标</h4>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                list:['关羽','张飞','赵云','马超','黄忠'],
+                obj:{
+                    name: '诸葛亮',
+                    age: '28',
+                    address: '隆中'
+                },
+            },
+            methods: {
+                
+            },
+        });
+    </script>
+</body>
+</html>
