@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div style="width:350px; height:200px; background-color: green" @click.capture="grandfather">
+            <div style="width:300px; height:150px; background-color: aqua" @click="father">
+                <div style="width:100px; height:50px; background-color:blue" @click="son">
+                    <div style="width:50px; height:20px; background-color:red" @click="grandson"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                grandfather(){
+                    console.log("grandfather");
+                },
+                father() {
+                    console.log("father");
+                },
+                son() {
+                    console.log("son");
+                },
+                grandson(){
+                    console.log("grandson")
+                }
+            },
+        });
+    </script>
+</body>
+</html>

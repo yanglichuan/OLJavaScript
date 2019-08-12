@@ -22,6 +22,9 @@
             <li>{{item}}</li>
         </ul>
         <h4>v-for遍历对象下标</h4>
+        <ul v-for="(item, key, index) in obj" :key="index">
+            <li>key:{{key}}----index:{{index}}---item:{{item}}</li>
+        </ul>
     </div>
     <script>
         new Vue({

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- @keyup. 后面更指令 -->
+        <input type="text" v-model="name" @keyup.up="fn">
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name:''
+            },
+            methods: {
+                fn(){
+                    console.log("----")
+                }
+            },
+        });
+    </script>
+</body>
+</html>

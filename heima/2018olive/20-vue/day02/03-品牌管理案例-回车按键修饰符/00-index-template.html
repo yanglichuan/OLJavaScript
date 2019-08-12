@@ -25,7 +25,7 @@
 </head>
 
 <body>
-  <div class="container" id="app">
+  <div class="container">
     <form class="form-inline">
       <div class="form-group">
         <label>名称</label>
@@ -49,11 +49,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, index) in list" :key="item.id">
-          <td>{{index+1}}</td>
-          <td>{{item.name}}</td>
-          <td>{{item.desc}}</td>
-          <td>{{item.ctime}}</td>
+        <tr>
+          <td>1</td>
+          <td>奔驰</td>
+          <td>挺贵的</td>
+          <td>"2017-10-11T14:40:39.025Z"</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>宝马</td>
+          <td>别摸我</td>
+          <td>"2017-10-11T14:40:39.025Z"</td>
+          <td><a href="#">删除</a></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>奥迪</td>
+          <td>奥迪双钻，我的伙伴</td>
+          <td>"2017-10-11T14:40:39.025Z"</td>
           <td><a href="#">删除</a></td>
         </tr>
       </tbody>
@@ -61,19 +75,7 @@
   </div>
 
   <script src="./node_modules/vue/dist/vue.js"></script>
-  <script>
-    const vm = new Vue({
-      el: '#app',
-      // 提供数据
-      data: {
-        list: [
-          {id: 1, name:'奔驰', desc: '奔驰贵不贵', ctime: new Date()},
-          {id: 2, name:'宝马', desc: '别摸我', ctime: new Date()},
-          {id: 3, name:'奥迪', desc: '奥迪双钻，我的伙伴', ctime: new Date()}
-        ]
-      }
-    });
-  </script>
+
 </body>
 
 </html>
