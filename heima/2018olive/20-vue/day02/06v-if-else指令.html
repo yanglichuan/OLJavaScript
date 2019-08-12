@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-if="age>18">可以酒吧</p>
+        <p v-else-if="age>16">可以网吧</p>
+        <p v-else>只能在家</p>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                age: 5
+            },
+            methods: {
+                
+            },
+        });
+    </script>
+</body>
+</html>
