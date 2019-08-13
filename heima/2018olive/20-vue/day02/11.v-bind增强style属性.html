@@ -9,15 +9,17 @@
 </head>
 <body>
     <div id="app">
-        <p v-if="age>=18">可以酒吧</p>
-        <p v-else-if="age>=16">可以网吧</p>
-        <p v-else>只能在家</p>
+        <div style="color:aqua;">{{msg}}</div>
+        <div :style="styleObj">{{msg}}</div>
     </div>
     <script>
-        var vm = new Vue({
+        new Vue({
             el: '#app',
             data: {
-                age: 5
+                msg: "Hello World",
+                styleObj: {
+                    color: 'red',
+                },
             },
             methods: {
                 

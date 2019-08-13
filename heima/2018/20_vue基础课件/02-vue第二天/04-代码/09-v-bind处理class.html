@@ -25,7 +25,8 @@
 
 <body>
   <div id="app">
-    <p :class="{box: true, border: true}" :title="msg">哈哈哈</p>
+    <!-- <p :class="{box: true, border: true}" :title="msg">哈哈哈</p> -->
+    <p :class="classStr" :title="msg">哈哈哈</p>
   </div>
 
   <script src="vue.js"></script>
@@ -34,7 +35,7 @@
       el: '#app',
       data: {
         msg: 'hello vue',
-        classStr: 'font box border',
+        classStr: 'font border',
         classObj: {
           font: true,
           box: true,

@@ -6,18 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./node_modules/vue/dist/vue.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        .green {
+            color: green;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <p v-if="age>=18">可以酒吧</p>
-        <p v-else-if="age>=16">可以网吧</p>
-        <p v-else>只能在家</p>
+        <ul v-for="(item, index) in list">
+            <li :class="index%2===0?'red':'green'">{{item}}</li>
+        </ul>
     </div>
     <script>
-        var vm = new Vue({
+        new Vue({
             el: '#app',
             data: {
-                age: 5
+                list: [
+                    '关羽', '张飞', '赵云', '马超'
+                ],
             },
             methods: {
                 

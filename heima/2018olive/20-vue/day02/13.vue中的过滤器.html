@@ -9,15 +9,16 @@
 </head>
 <body>
     <div id="app">
-        <p v-if="age>=18">可以酒吧</p>
-        <p v-else-if="age>=16">可以网吧</p>
-        <p v-else>只能在家</p>
+        <p>{{msg | str}}</p>
     </div>
     <script>
-        var vm = new Vue({
+        Vue.filter("str", function(msg){
+            return msg.toUpperCase()
+        });
+        new Vue({
             el: '#app',
             data: {
-                age: 5
+                msg: "Hello World",
             },
             methods: {
                 
