@@ -6,19 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
 </head>
 <body>
     <div id="app">
-        <p>{{msg | toUpperCase}}</p>
+
     </div>
     <script>
-        Vue.filter('toUpperCase', function(msg){
-            return msg.toUpperCase();
-        });
         new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                msg: 'Hello Vue',
+
+            },
+            methods: {
+                
+            },
+            mounted() {
+                axios.get('http://localhost:9999/getBrandList')
+                .then(function (response) {
+                  // handle success
+                  console.log(response.data);
+                })
             },
         });
     </script>

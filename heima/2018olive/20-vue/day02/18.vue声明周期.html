@@ -9,18 +9,18 @@
 </head>
 <body>
     <div id="app">
-        <p>{{msg | toUpperCase}}</p>
+      {{msg}}
     </div>
     <script>
-        Vue.filter('toUpperCase', function(msg){
-            return msg.toUpperCase();
-        });
-        new Vue({
-            el: "#app",
+        let vm = new Vue({
             data: {
-                msg: 'Hello Vue',
+              msg: "Hello Vue",
+            },
+            methods: {
+                
             },
         });
+        vm.$mount("#app")
     </script>
 </body>
 </html>

@@ -9,17 +9,22 @@
 </head>
 <body>
     <div id="app">
-        <p>{{msg | toUpperCase}}</p>
+        {{msg | firstFilter}}
     </div>
     <script>
-        Vue.filter('toUpperCase', function(msg){
-            return msg.toUpperCase();
-        });
         new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                msg: 'Hello Vue',
+                msg: 'Hello Vue'
             },
+            methods: {
+                
+            },
+            filters: {
+                firstFilter: function(input, flt) {
+                    return input.toUpperCase();
+                }
+            }
         });
     </script>
 </body>

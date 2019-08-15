@@ -30,7 +30,9 @@
       console.log(input)
       return input + '嘿嘿'
     })
+    // input 是数据 num是保留的几位小数值
     Vue.filter('numFilter', function (input, num) {
+      // 如果num没有传参，那么默认为2
       num = num || 2
       return input.toFixed(num)
     })

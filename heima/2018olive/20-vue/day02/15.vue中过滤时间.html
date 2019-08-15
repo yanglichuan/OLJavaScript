@@ -6,19 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/moment/moment.js"></script>
 </head>
 <body>
     <div id="app">
-        <p>{{msg | toUpperCase}}</p>
+        {{date | dateFormat}}
+        {{date | dateFormat("YYYY年MM月DD日")}}
     </div>
     <script>
-        Vue.filter('toUpperCase', function(msg){
-            return msg.toUpperCase();
+        Vue.filter("dateFormat", function(input, format){
+            format = format || "YYYY-MM-DD"
+            return moment(input).format(format)
         });
         new Vue({
-            el: "#app",
+            el: '#app',
             data: {
-                msg: 'Hello Vue',
+                date: new Date(),
+            },
+            methods: {
+                
             },
         });
     </script>
