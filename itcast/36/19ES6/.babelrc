@@ -1,6 +1,0 @@
-{
-    "presets":["es2015"],
-    "retainLines": true,
-    "plugins":["transform-decorators-legacy"]
-  }
-  
