@@ -19,7 +19,8 @@
   <script>
     // 对于被Object.defineProperty修饰过的属性，响应式的属性
     // 结论： 动态给data中的数据添加的属性，不是响应式的
-    // 原因：在创建vue实例的使用，data中所有的数据都会通过Object.defineProperty添加给vm
+    // 原因：在创建vue实例的使用，data中所有的数据都会通过Object.defineProperty
+    //      添加给vm
     //      这些数据发生了改变，vue是知道的
 
 

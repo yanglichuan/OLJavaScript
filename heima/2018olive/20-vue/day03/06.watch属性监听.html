@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <input type="text" v-model="msg">{{tips}}
+      <div>
+        {{msg}} --- {{name}}
+      </div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+              msg: '',
+              name: 'zs',
+              tips: ''
+            },
+            methods: {
+            },
+            watch: {
+              msg: function (newVal, oldValue) {
+                console.log("监听到了.")
+                if (newVal.length < 3 || newVal.length > 6) {
+                  this.tips = '校验不通过'
+                }else {
+                  this.tips = '校验通过'
+                }
+              }
+            }
+        });
+    </script>
+</body>
+</html>

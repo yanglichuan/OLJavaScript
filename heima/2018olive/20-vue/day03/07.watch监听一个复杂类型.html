@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      {{ car.brand }} --- {{ car.color }}
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+              msg: 'Hello Vue',
+              car: {
+                brand: '永久',
+                color: 'red'
+              }
+            },
+            methods: {
+            },
+            watch: {
+              msg: function (value) {
+                console.log('监听到msg=' + value)
+              },
+              car: {
+                handler: function (newValue) {
+                  console.log('监听到了。')
+                  console.log(newValue)
+                },
+                // 如果监听一个对象，必须制定deep为true，除了监听本身，还会监听对象中的属性
+                deep: true,
+                // 页面加载，会立即执行一次
+                immediate: true
+              }
+            }
+        });
+    </script>
+</body>
+</html>

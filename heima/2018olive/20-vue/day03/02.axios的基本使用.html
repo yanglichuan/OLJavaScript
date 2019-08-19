@@ -8,6 +8,7 @@
     <script src="./node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
+    <script src="./node_modules/axios/dist/axios.js"></script>
     <div id="app">
 
     </div>
@@ -19,6 +20,26 @@
             },
             methods: {
                 
+            },
+            created() {
+                axios({
+                   method: 'get',
+                   url: 'http://localhost:9999/getBrandList'
+                }).then(reps =>{
+                    console.log(reps)
+                });
+
+                axios({
+                    method: 'post',
+                    url: 'http://localhost:9999/addBrand',
+                    data: {
+                        name: '奥拓',
+                        desc: '你值得拥有',
+                        time: new Date()
+                    }
+                }).then(resp => {
+                    console.log(resp)
+                })
             },
         });
     </script>
