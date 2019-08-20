@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 在插值表达式（指令）使用的数据必须先在data中声明的，才能使用 -->
+    <p>{{car.brand}} ---- {{car.price}} ----- {{car.color}}</p>
+    <button @click="fn">给car添加color属性</button>
+  </div>
+
+  <script src="vue.js"></script>
+  <script>
+    // 对于被Object.defineProperty修饰过的属性，响应式的属性
+    // 结论： 动态给data中的数据添加的属性，不是响应式的
+    // 原因：在创建vue实例的使用，data中所有的数据都会通过Object.defineProperty添加给vm
+    //      这些数据发生了改变，vue是知道的
+
+
+    // vm.car.color = 'red'
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello vue',
+        car: {
+          brand: '摩拜',
+          price: 1000
+        }
+      },
+      methods: {
+        fn() {
+          // 给car添加了一个属性，这个属性是color
+          //this.car.color = 'yellow'
+          // 响应式的给car增加了一个属性 color
+          //this.$set(this.car, 'color', 'yellow')
+          Vue.set(this.car, 'color', 'yellow')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+
+<!--
+  1. 直接给一个响应式对象增加一个属性，增加的属性不是响应式的，改变vue是监听不到
+
+  2. vm.$set(obj, key, value)
+  3. Vue.set(obj, key, value)
+
+ -->

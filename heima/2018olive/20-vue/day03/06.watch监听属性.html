@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <input type="text" v-model="msg"><span>{{valid}}</span>
+      {{msg}}--Hello
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+              msg: '',
+              valid: '',
+            },
+            methods: {
+
+            },
+            watch: {
+              msg: function () {
+                if (this.msg.length < 3 || this.msg.length > 6) {
+                  this.valid = '校验不通过'
+                }else {
+                  this.valid = '校验通过'
+                }
+              }
+            }
+        });
+    </script>
+</body>
+</html>
